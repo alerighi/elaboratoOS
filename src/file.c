@@ -15,12 +15,12 @@
  */
 static char read_char(int fd)
 {
-    char c = 0;
+	char c = 0;
 
-    if (read(fd, &c, 1) != 1)
-        die("Errore nella lettura dal file descriptor %d", fd);
-    
-    return c;
+	if (read(fd, &c, 1) != 1)
+		die("Errore nella lettura dal file descriptor %d", fd);
+	
+	return c;
 }
 
 /**
@@ -31,24 +31,24 @@ static char read_char(int fd)
  */
 static int read_number(int fd)
 {
-    int n, i;
-    char buff[1024];
+	int n, i;
+	char buff[1024];
 
-    i = 0;
-    while (buff[i] = read_char(fd))
-    {
-        if (buff[i] < '0' || buff[i] > '9')
-            break;
-        i++;
-    }
-    buff[i] = '\0';
+	i = 0;
+	while (buff[i] = read_char(fd))
+	{
+		if (buff[i] < '0' || buff[i] > '9')
+			break;
+		i++;
+	}
+	buff[i] = '\0';
 
-    if (i == 0)
-        die("Errore parsing del file descriptor %d", fd);
+	if (i == 0)
+		die("Errore parsing del file descriptor %d", fd);
 
-    n = atoi(buff);
-    
-    return n;
+	n = atoi(buff);
+	
+	return n;
 }
 
 /**
@@ -60,20 +60,20 @@ static int read_number(int fd)
  */
 void load_matrix(const char *filename, int n, int matrix[n][n])
 {
-    int fd;
-    int i, j;
+	int fd;
+	int i, j;
 
-    println("Caricamento file %s", filename);
+	println("Caricamento file %s", filename);
 
-    if ((fd = open(filename, O_RDONLY)) == -1)
-        die("Impossibile aprire il file %s", filename);
-    
-    for (i = 0; i < n; i++)
-        for (j = 0; j < n; j++)
-            matrix[i][j] = read_number(fd);
+	if ((fd = open(filename, O_RDONLY)) == -1)
+		die("Impossibile aprire il file %s", filename);
+	
+	for (i = 0; i < n; i++)
+		for (j = 0; j < n; j++)
+			matrix[i][j] = read_number(fd);
 
-    if (close(fd) == -1)
-        die("Errore chiusura file %s", filename);
+	if (close(fd) == -1)
+		die("Errore chiusura file %s", filename);
 }
 
 /**
@@ -85,28 +85,28 @@ void load_matrix(const char *filename, int n, int matrix[n][n])
  */
 void save_matrix(const char *filename, int n, int matrix[n][n])
 {
-    int fd; 
-    int i, j;
-    char buff[20];
+	int fd; 
+	int i, j;
+	char buff[20];
 
-    println("Salvataggio matrice su file %s", filename);
+	println("Salvataggio matrice su file %s", filename);
 
-    if ((fd = open(filename, O_WRONLY|O_CREAT|O_TRUNC, 0644)) == -1)
-        die("Errore apertura file %s", filename);
+	if ((fd = open(filename, O_WRONLY|O_CREAT|O_TRUNC, 0644)) == -1)
+		die("Errore apertura file %s", filename);
 
-    for (i = 0; i < n; i++) 
-    {
-        for (j = 0; j < n; j++) 
-        {
-            snprintf(buff, sizeof(buff), "%d%c", matrix[i][j], j == n-1 ? '\n': ',');
-            
-            if (write(fd, buff, strlen(buff)) == -1)
-                die("Errore di scrittura sul file %s", filename);
-        }
-    }   
+	for (i = 0; i < n; i++) 
+	{
+		for (j = 0; j < n; j++) 
+		{
+			snprintf(buff, sizeof(buff), "%d%c", matrix[i][j], j == n-1 ? '\n': ',');
+			
+			if (write(fd, buff, strlen(buff)) == -1)
+				die("Errore di scrittura sul file %s", filename);
+		}
+	}   
 
-    if (close(fd) == -1)
-        die("Errore chiusura file %s", filename);
+	if (close(fd) == -1)
+		die("Errore chiusura file %s", filename);
 }
 
 

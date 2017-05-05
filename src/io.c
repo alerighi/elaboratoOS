@@ -15,20 +15,20 @@
  */
 void die(const char *message, ...)
 {
-    char buffer[4096];
-    va_list args;
+	char buffer[4096];
+	va_list args;
 
-    va_start(args, message);
-    
-    vsnprintf(buffer, 4096, message, args);
-    strcat(buffer, "\n");
-    
-    write(2, buffer, strlen(buffer));
-    
-    va_end(args);
-    
-    cleanup();
-    exit(1);
+	va_start(args, message);
+	
+	vsnprintf(buffer, 4096, message, args);
+	strcat(buffer, "\n");
+	
+	write(2, buffer, strlen(buffer));
+	
+	va_end(args);
+	
+	cleanup();
+	exit(1);
 }
 
 /**
@@ -38,18 +38,18 @@ void die(const char *message, ...)
  */
 void println(const char *message, ...)
 {
-    char buffer[4096];
-    va_list args;
+	char buffer[4096];
+	va_list args;
 
-    va_start(args, message);
-    
-    vsnprintf(buffer, 4096, message, args);
-    strcat(buffer, "\n");
+	va_start(args, message);
+	
+	vsnprintf(buffer, 4096, message, args);
+	strcat(buffer, "\n");
 
-    if (write(1, buffer, strlen(buffer)) == -1)
-        die("Errore stampa messaggio");
-    
-    va_end(args);
+	if (write(1, buffer, strlen(buffer)) == -1)
+		die("Errore stampa messaggio");
+	
+	va_end(args);
 }
 
 /**
@@ -59,32 +59,33 @@ void println(const char *message, ...)
  */
 void print(const char *message, ...)
 {
-    char buffer[4096];
-    va_list args;
+	char buffer[4096];
+	va_list args;
 
-    va_start(args, message);
-    
-    vsnprintf(buffer, 4096, message, args);
+	va_start(args, message);
+	
+	vsnprintf(buffer, 4096, message, args);
 
-    if (write(1, buffer, strlen(buffer)) == -1)
-        die("Errore stampa messaggio");
-    
-    va_end(args);
+	if (write(1, buffer, strlen(buffer)) == -1)
+		die("Errore stampa messaggio");
+	
+	va_end(args);
 }
 
 /**
  * Stampa un messaggo di help relativo all'utilizzo del programma
+ * e termina con stato d'uscita 1
  */
 void usage()
 {
-    const char *message = 
-        "Usage: program <MatA> <MatB> <MatC> <N> <P>\n"
-        "    - MatA    file prima matrice da moltiplicare\n"
-        "    - MatB    file seconda matrice da moltiplicare\n"
-        "    - MatC    file dove salvare la matrice risultante\n"
-        "    - N       ordine della matrice\n"
-        "    - P       numero di processi worker da creare\n";
-    die(message);
+	const char *message = 
+		"Usage: program <MatA> <MatB> <MatC> <N> <P>\n"
+		"    - MatA    file prima matrice da moltiplicare\n"
+		"    - MatB    file seconda matrice da moltiplicare\n"
+		"    - MatC    file dove salvare la matrice risultante\n"
+		"    - N       ordine della matrice\n"
+		"    - P       numero di processi worker da creare\n";
+	die(message);
 }
 
 /**
@@ -95,13 +96,13 @@ void usage()
  */
 void print_matrix(int n, int matrix[n][n])
 {
-    int i, j;
+	int i, j;
 
-    for (i = 0; i < n; i++)
-    {
-        for (j = 0; j < n; j++)
-            print("%d\t", matrix[i][j]);
-        
-        print("\n");
-    }
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < n; j++)
+			print("%d\t", matrix[i][j]);
+		
+		print("\n");
+	}
 }
