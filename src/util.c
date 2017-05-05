@@ -8,5 +8,12 @@
  */
 void cleanup(void)
 {
+	// terminazione di tutti i processi figli
+
+	// rimozione memoria condivisa
+	
+	// rimozione semafori
+
+	// eliminazione fifo 
 
 }

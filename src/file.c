@@ -24,12 +24,13 @@ static char read_char(int fd)
 }
 
 /**
- * Legge un numero da un file
+ * Legge un intero da un file descriptor specificato. 
+ * Ignora i caratteri non numerici
  *
  * @param fd file descriptor da cui leggere
  * @return numero letto
  */
-static int read_number(int fd)
+static int read_integer(int fd)
 {
 	int n, i;
 	char buff[1024];
@@ -70,7 +71,7 @@ void load_matrix(const char *filename, int n, int matrix[n][n])
 	
 	for (i = 0; i < n; i++)
 		for (j = 0; j < n; j++)
-			matrix[i][j] = read_number(fd);
+			matrix[i][j] = read_integer(fd);
 
 	if (close(fd) == -1)
 		die("Errore chiusura file %s", filename);
