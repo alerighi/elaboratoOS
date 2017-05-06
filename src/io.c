@@ -32,6 +32,27 @@ void die(const char *message, ...)
 }
 
 /**
+ * Stampa su standard error un messaggio di errore
+ *
+ * @param message messaggio di errore da stampare
+ */
+void err(const char *message, ...)
+{
+	char buffer[4096];
+	va_list args;
+
+	va_start(args, message);
+	
+	vsnprintf(buffer, 4096, message, args);
+	strcat(buffer, "\n");
+	
+	write(2, buffer, strlen(buffer));
+	
+	va_end(args);
+	
+}
+
+/**
  * Stampa su standard output un messaggio di log con ritorno a capo
  *
  * @param message messaggio da stampare a video

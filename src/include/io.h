@@ -5,6 +5,7 @@ void usage(void);
 void print(const char *message, ...);
 void println(const char *message, ...);
 void die(const char *message, ...);
+void err(const char *message, ...);
 void print_matrix(int n, int matrix[n][n]);
 
 #endif

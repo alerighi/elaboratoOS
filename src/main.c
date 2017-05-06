@@ -3,6 +3,7 @@
 #include "include/util.h"
 #include "include/file.h"
 #include "include/io.h"
+#include "include/ipc.h"
 
 
 // descrittori aree memoria condivisa
@@ -11,12 +12,11 @@ int shmidB;
 int shmidC;
 int shmidS;
 
-
 int main(int argc, char *argv[])
 {
-	int n = 4;
-	int *matrixA;
-	int *matrixB;
+	int n;
+	
+	void *ptr;
 
 	// setta i gestori dei segnali sigint e sigterm
 
@@ -32,14 +32,21 @@ int main(int argc, char *argv[])
 	print("Esecuzione programma\n");
 
 	// creare la memoria condivisa
+	shmidA = create_shm(argv[1], n * n * sizeof(int));
+	shmidB = create_shm(argv[2], n * n * sizeof(int));
+	shmidC = create_shm(argv[3], n * n * sizeof(int));
+	shmidS = create_shm("Somma", sizeof(long));
 
-	matrixA = malloc(sizeof(int)*n*n);
-	matrixB = malloc(sizeof(int)*n*n);
+	// leggo matrice A
+	ptr = attach_shm(shmidA);
+	load_matrix(argv[1], n, ptr);
+	detach_shm(ptr);
 
-	// legge i file delle matrici
+	// leggo matrice B
+	ptr = attach_shm(shmidB);
+	load_matrix(argv[2], n, ptr);
+	detach_shm(ptr);
 
-	load_matrix(argv[1], n, matrixA);
-	//load_matrix(argv[2], matrixB, n);
 	
 	// avvia i worker per la moltiplicazione 
 
@@ -47,10 +54,15 @@ int main(int argc, char *argv[])
 
 	// stampa il risultato
 
-	print_matrix(n, matrixA);
+	ptr = attach_shm(shmidC);
+	println("Matrice risultante:");
+	print_matrix(n, ptr);
+	save_matrix(argv[4], n, ptr);
+	detach_shm(ptr);
 
-	// salva la matrice risultato in output
-	save_matrix(argv[2], n, matrixA);
+	ptr = attach_shm(shmidS);
+	println("Somma risultante: %d", *((long*) ptr));
+	detach_shm(ptr);
 
 	// pulisce tutte le risorse utilizzate
 	cleanup();
