@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "include/util.h"
 #include "include/file.h"
@@ -13,7 +14,7 @@
  *
  * @param message messaggio di errore da stampare
  */
-void die(const char *message, ...)
+void msg_error(int status, const char *file, int line, const char *message, ...)
 {
 	char buffer[4096];
 	va_list args;
@@ -21,35 +22,17 @@ void die(const char *message, ...)
 	va_start(args, message);
 	
 	vsnprintf(buffer, 4096, message, args);
-	strcat(buffer, "\n");
+	snprintf(buffer, 4096, "%s, %d: %s\n", file, line, message);
 	
 	write(2, buffer, strlen(buffer));
 	
 	va_end(args);
 	
-	cleanup();
-	exit(1);
-}
-
-/**
- * Stampa su standard error un messaggio di errore
- *
- * @param message messaggio di errore da stampare
- */
-void err(const char *message, ...)
-{
-	char buffer[4096];
-	va_list args;
-
-	va_start(args, message);
-	
-	vsnprintf(buffer, 4096, message, args);
-	strcat(buffer, "\n");
-	
-	write(2, buffer, strlen(buffer));
-	
-	va_end(args);
-	
+	if (status)
+	{
+		exit(status);
+		cleanup();
+	}
 }
 
 /**
