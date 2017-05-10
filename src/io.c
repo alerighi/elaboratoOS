@@ -87,23 +87,6 @@ void print(const char *message, ...)
 }
 
 /**
- * Stampa un messaggo di help relativo all'utilizzo del programma
- * e termina con stato d'uscita 1
- */
-void usage()
-{
-	const char *message = 
-		"Usage: program <MatA> <MatB> <MatC> <N> <P>\n"
-		"    - MatA    file prima matrice da moltiplicare\n"
-		"    - MatB    file seconda matrice da moltiplicare\n"
-		"    - MatC    file dove salvare la matrice risultante\n"
-		"    - N       ordine della matrice\n"
-		"    - P       numero di processi worker da creare\n";
-	println(message);
-	exit(0);
-}
-
-/**
  * Stampa una matrice su standard output
  *
  * @param n dimensione della matrice

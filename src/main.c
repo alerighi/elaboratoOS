@@ -21,6 +21,23 @@ int P;
 struct worker *workers;
 
 /**
+ * Stampa un messaggo di help relativo all'utilizzo del programma
+ * e termina con stato d'uscita 1
+ */
+static void usage()
+{
+	const char *message = 
+		"Usage: program <MatA> <MatB> <MatC> <N> <P>\n"
+		"    - MatA    file prima matrice da moltiplicare\n"
+		"    - MatB    file seconda matrice da moltiplicare\n"
+		"    - MatC    file dove salvare la matrice risultante\n"
+		"    - N       ordine della matrice\n"
+		"    - P       numero di processi worker da creare";
+	println(message);
+	exit(0);
+}
+
+/**
  * Programma principale
  *
  * @param argc numero di argomenti da riga di comando
