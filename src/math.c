@@ -13,11 +13,11 @@
  */
 int product_row_column(int n, int matrixA[n][n], int matrixB[n][n], int i, int j)
 {
-	int i;
+	int k;
 	int result = 0;
 
 	for (k = 0; k < n; k++)
-		result += matrixA[i][k] * matrix[k][j];
+		result += matrixA[i][k] * matrixB[k][j];
 
 	return result;
 }

@@ -3,28 +3,36 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
+#include <errno.h>
 
 #include "include/util.h"
 #include "include/file.h"
 #include "include/io.h"
 
 /**
- * Stampa su standard error un messaggio di errore, 
- * quindi termina con stato di uscita 1
+ * Stampa su standard error un messaggio di errore. Da usare con le apposite 
+ * macro die() e err()
  *
+ * @param status se > 0, termina con codice di uscita stato, se = 0, non termina
+ * @param file file in cui si verifica l'errore
+ * @param line linea in cui si verifica l'errore
  * @param message messaggio di errore da stampare
  */
 void msg_error(int status, const char *file, int line, const char *message, ...)
 {
-	char buffer[4096];
+	char buffer[1024];
+	char buffer2[2014];
 	va_list args;
 
 	va_start(args, message);
 	
-	vsnprintf(buffer, 4096, message, args);
-	snprintf(buffer, 4096, "%s, %d: %s\n", file, line, message);
+	vsnprintf(buffer, sizeof(buffer), message, args);
+	if (errno)
+		snprintf(buffer2, sizeof(buffer2), "[%s %d] %s: %s\n", file, line, strerror(errno), buffer);
+	else 
+		snprintf(buffer2, sizeof(buffer2), "[%s %d] %s\n", file, line, buffer);
 	
-	write(2, buffer, strlen(buffer));
+	write(2, buffer2, strlen(buffer2));
 	
 	va_end(args);
 	
@@ -47,13 +55,14 @@ void println(const char *message, ...)
 
 	va_start(args, message);
 	
-	vsnprintf(buffer, 4096, message, args);
+	vsnprintf(buffer, sizeof(buffer), message, args);
 	strcat(buffer, "\n");
+
+	va_end(args);
+
 
 	if (write(1, buffer, strlen(buffer)) == -1)
 		die("Errore stampa messaggio");
-	
-	va_end(args);
 }
 
 /**
@@ -70,10 +79,11 @@ void print(const char *message, ...)
 	
 	vsnprintf(buffer, 4096, message, args);
 
+	va_end(args);
+
 	if (write(1, buffer, strlen(buffer)) == -1)
 		die("Errore stampa messaggio");
 	
-	va_end(args);
 }
 
 /**
@@ -89,7 +99,8 @@ void usage()
 		"    - MatC    file dove salvare la matrice risultante\n"
 		"    - N       ordine della matrice\n"
 		"    - P       numero di processi worker da creare\n";
-	die(message);
+	println(message);
+	exit(0);
 }
 
 /**

@@ -36,7 +36,7 @@ static int read_integer(int fd)
 	char buff[1024];
 
 	i = 0;
-	while (buff[i] = read_char(fd))
+	while ((buff[i] = read_char(fd)))
 	{
 		if (buff[i] < '0' || buff[i] > '9')
 			break;
@@ -90,6 +90,7 @@ void save_matrix(const char *filename, int n, int matrix[n][n])
 	int i, j;
 	char buff[20];
 
+	print("Save");
 	println("Salvataggio matrice su file %s", filename);
 
 	if ((fd = open(filename, O_WRONLY|O_CREAT|O_TRUNC, 0644)) == -1)
