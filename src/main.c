@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 	if (P <= 0)
 		die("Parametro P non valido!");
 
-	print("[P] Esecuzione programma\n");
+	println("[P] Esecuzione programma");
 
 	// creare la memoria condivisa
 	shmidA = create_shm(argv[1], 10, N * N * sizeof(int));

@@ -25,6 +25,11 @@ struct thread_args {
     int j;
 };
 
+/**
+ * Thread worker
+ *
+ * @param thread_args argomenti da passare al thread
+ */
 static void *run_worker_thread(void *thread_arg) 
 {
     struct thread_args *args;
@@ -40,6 +45,7 @@ static void *run_worker_thread(void *thread_arg)
             break;
         case CMD_SUM:
             tmp = sum_row(N, matrixC, args->i);
+
             if (pthread_mutex_lock(&mutex))
                 die("Errore lock mutex");
             
@@ -83,10 +89,6 @@ int main(int argc, char *argv[])
     struct thread_args *args;
     pthread_t *threads;
 
-	// setta i gestori dei segnali sigint e sigterm
-	//signal(SIGINT, sigint_handler);
-	//signal(SIGTERM, sigterm_handler);
-
 	/* controlla che gli argomenti siano in numero corretto */
 	if (argc != 5)
 	    usage();
@@ -96,10 +98,12 @@ int main(int argc, char *argv[])
     if (N <= 0)
 		die("Parametro N non valido!");
 	
-	print("Esecuzione programma\n");
-    pthread_mutex_init(&mutex, NULL);
+	println("Esecuzione programma");
 
-    // alloca dinamicamente le matrici
+    if (pthread_mutex_init(&mutex, NULL))
+        die("Errore inizializzazione mutex");
+
+    // alloca memoria dinamica
     matrixA = malloc(N * N * sizeof(int));
     matrixB = malloc(N * N * sizeof(int));
     matrixC = malloc(N * N * sizeof(int));
@@ -108,7 +112,7 @@ int main(int argc, char *argv[])
 	load_matrix(argv[1], N, matrixA);
 	load_matrix(argv[2], N, matrixB);
 	
-	println("Eseguo moltiplicazione: creo worker thread");
+	println("Eseguo moltiplicazione");
 	
 	// avvia i worker per la moltiplicazione 
     k = 0;
@@ -126,7 +130,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	println("Attendo terminazione thread worker");
+	println("Attendo terminazione thread worker moltiplicazione");
 	for (i = 0; i < N*N; i++)
 		if (pthread_join(threads[i], NULL))
             die("Errore pthread_join");
@@ -147,7 +151,7 @@ int main(int argc, char *argv[])
 
 	}
 
-	println("Attendo terminazione thread worker");
+	println("Attendo terminazione thread worker somma");
 	for (i = 0; i < N; i++)
 		if (pthread_join(threads[i], NULL))
             die("Errore pthread_join");
