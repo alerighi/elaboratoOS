@@ -65,7 +65,8 @@ Il figlio dunque:
     - legge la riga k-esima di C;
     - somma gli elementi letti;
     - legge il valore parziale della somma degli elementi di C;
-    - somma gli elementi della k-esima riga di C e la somma parziale degli elementi di C; - aggiorna il valore parziale degli elementi di C.
+    - somma gli elementi della k-esima riga di C e la somma parziale degli elementi di C; 
+    - aggiorna il valore parziale degli elementi di C.
 
 Il padre invierà i comandi ai figli mediante delle pipe.
 

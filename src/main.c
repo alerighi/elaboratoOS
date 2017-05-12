@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 	shmidA = create_shm(N * N * sizeof(int));
 	shmidB = create_shm(N * N * sizeof(int));
 	shmidC = create_shm(N * N * sizeof(int));
-	shmidS = create_shm(sizeof(long));
+	shmidS = create_shm(sizeof(int));
 
 	// creare semafori
 	semid = create_sem();
@@ -150,7 +150,7 @@ int main(int argc, char *argv[])
 	detach_shm(ptr);
 
 	ptr = attach_shm(shmidS);
-	println("[P] Somma risultante: %d", *((long*) ptr));
+	println("[P] Somma risultante: %d", *((int*) ptr));
 	detach_shm(ptr);
 
 	// pulisce tutte le risorse utilizzate

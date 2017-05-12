@@ -44,7 +44,7 @@ void run_worker(int pipe_fd, int n)
 	int (*matrixA)[N];
 	int (*matrixB)[N];
 	int (*matrixC)[N];
-	long *sum;
+	int *sum;
 
 	int res;
 
