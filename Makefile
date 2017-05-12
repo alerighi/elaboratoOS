@@ -3,7 +3,6 @@ CFLAGS=-Wall -O2 -Wextra
 LDFLAGS=
 BINNAME=elaborato
 
-
 ifeq ($(THREAD),1)
 	OBJECTS=obj/main_thread.o obj/file.o obj/io.o obj/math.o
 	HEADERS=src/include/file.h src/include/io.h src/include/math.h
@@ -38,10 +37,13 @@ doc:
 	@doxygen doc/Doxyfile
 
 test: clean $(BINNAME)
+	@echo "----------------------"
+	@echo " ESECIZIONE PROGRAMMA "
+	@echo "----------------------"
 ifeq ($(THREAD),1)
-	@./$(BINNAME) test/matA.csv test/matB.csv test/ris.csv 5
+	./$(BINNAME) test/matA.csv test/matB.csv test/ris.csv 5
 else
-	@./$(BINNAME) test/matA.csv test/matB.csv test/ris.csv 5 10
+	./$(BINNAME) test/matA.csv test/matB.csv test/ris.csv 5 10
 endif
 
 help:
