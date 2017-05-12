@@ -28,7 +28,7 @@
  * @param line linea in cui si verifica l'errore
  * @param message messaggio di errore da stampare
  */
-void msg_error(int status, const char *file, int line, const char *message, ...)
+void msg_error(int status, const char *file, int line, const char *func, const char *message, ...)
 {
 	char buffer[1024];
 	char buffer2[2014];
@@ -38,9 +38,9 @@ void msg_error(int status, const char *file, int line, const char *message, ...)
 	
 	vsnprintf(buffer, sizeof(buffer), message, args);
 	if (errno)
-		snprintf(buffer2, sizeof(buffer2), "[%s %d] %s: %s\n", file, line, buffer, strerror(errno));
+		snprintf(buffer2, sizeof(buffer2), "[%s %d %s()] %s: %s\n", file, line, func, buffer, strerror(errno));
 	else 
-		snprintf(buffer2, sizeof(buffer2), "[%s %d] %s\n", file, line, buffer);
+		snprintf(buffer2, sizeof(buffer2), "[%s %d %s()] %s\n", file, line, func, buffer);
 	
 	write(2, buffer2, strlen(buffer2));
 	
