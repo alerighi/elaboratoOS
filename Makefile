@@ -1,7 +1,12 @@
+# Makefile per la compilazione elaborato Sistemi Operativi
+# Alessandro Righi 
+
 CC=gcc
 CFLAGS=-Wall -O2 -Wextra 
 LDFLAGS=
 BINNAME=elaborato
+SRCDIR=src
+OBJDIR=obj
 
 ifeq ($(THREAD),1)
 	OBJECTS=obj/main_thread.o obj/file.o obj/io.o obj/math.o
@@ -17,8 +22,10 @@ endif
 
 all: $(BINNAME)
 
-obj/%.o: src/%.c $(HEADERS)
-	@mkdir -p obj/
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADERS) $(OBJDIR)
 	@echo "Compilazione $<"
 	@$(CC) -c -o $@ $< $(CFLAGS) 
 
@@ -28,7 +35,7 @@ $(BINNAME): $(OBJECTS)
 
 clean: 
 	@echo "Pulizia sorgenti"
-	@rm -rf obj/
+	@rm -rf $(OBJDIR)
 	@rm -rf $(BINNAME)
 
 rebuild: clean $(BINNAME)
@@ -54,6 +61,3 @@ help:
 	@echo "    make rebuild -- ricompila il progetto"
 	@echo "    make doc -- genera la documentazione doxygen"
 	@echo "    make test -- esegue un test del programma"
-
-
-
