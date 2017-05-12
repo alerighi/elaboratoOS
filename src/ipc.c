@@ -80,14 +80,11 @@ void detach_shm(void *ptr)
 int create_sem()
 {
 	int semid;
-	union semun {
-        int val;
-    } arg = {.val = 1};
 	
 	if ((semid = semget(IPC_PRIVATE, 1, IPC_CREAT|0666)) == -1)
 		die("Errore creazione semafori semget()");
 	
-	if (semctl(semid, 0, SETVAL, arg) == -1)
+	if (semctl(semid, 0, SETVAL, 1) == -1)
 		die("Errore semctl()");
 
 	println("Creato semaforo semid = %d", semid);

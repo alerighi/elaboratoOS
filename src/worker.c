@@ -11,7 +11,7 @@
 
 /**
  * @file worker.c
- * @brief Contiene i metodi eseguiti dal thread worker
+ * @brief Contiene i metodi eseguiti dal processo worker
  * @author Alessandro Righi
  */
 
@@ -31,7 +31,7 @@ static void notify_parent(int n)
 }
 
 /**
- * Corpo principale del codice del thread worker 
+ * Corpo principale del codice del processo worker 
  *
  * @param pipe_fd file descriptor della pipe 
  * @param n numero di sequenza del worker da cui leggere i comandi del padre

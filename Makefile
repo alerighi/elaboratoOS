@@ -55,9 +55,9 @@ endif
 
 help:
 	@echo "Usage:"
-	@echo "    make -- compila progetto standard"
-	@echo "    make THREAD=1 -- compila usando i thread"
-	@echo "    make clean -- pulisce i sorgenti"
-	@echo "    make rebuild -- ricompila il progetto"
-	@echo "    make doc -- genera la documentazione doxygen"
-	@echo "    make test -- esegue un test del programma"
+	@echo "    make            compila progetto standard"
+	@echo "    make THREAD=1   compila usando i thread"
+	@echo "    make clean      pulisce i sorgenti"
+	@echo "    make rebuild    ricompila il progetto"
+	@echo "    make doc        genera la documentazione doxygen"
+	@echo "    make test       esegue un test del programma"
