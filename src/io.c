@@ -124,15 +124,18 @@ void print_matrix(int n, int matrix[n][n])
 void usage()
 {
 	const char *message = 
-		"Usage: program <MatA> <MatB> <MatC> <N> <P>\n"
-		"    - MatA    file prima matrice da moltiplicare\n"
-		"    - MatB    file seconda matrice da moltiplicare\n"
-		"    - MatC    file dove salvare la matrice risultante\n"
-		"    - N       ordine della matrice\n"
+		"Usage: elaborato <MatA> <MatB> <MatC> <N> "
 #ifndef THREAD
-		"    - P       numero di processi worker da creare\n"
+		"<P>"
+#endif 
+		"\n    - MatA    file prima matrice da moltiplicare"
+		"\n    - MatB    file seconda matrice da moltiplicare"
+		"\n    - MatC    file dove salvare la matrice risultante"
+		"\n    - N       ordine della matrice"
+#ifndef THREAD
+		"\n    - P       numero di processi worker da creare"
 #endif
 		;
-	print(message);
+	println(message);
 	exit(0);
 }
