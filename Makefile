@@ -38,7 +38,7 @@ doc:
 
 test: clean $(BINNAME)
 	@echo "----------------------"
-	@echo " ESECIZIONE PROGRAMMA "
+	@echo " ESECUZIONE PROGRAMMA "
 	@echo "----------------------"
 ifeq ($(THREAD),1)
 	./$(BINNAME) test/matA.csv test/matB.csv test/ris.csv 5

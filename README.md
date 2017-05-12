@@ -1,6 +1,14 @@
 Elaborato Sistemi Operativi
 ---------------------------
 
+#### Utilizzo
+- Compilare con ```make```
+- Per ricompilare il programma, ```make rebuild``` 
+- Per eseguire un test predefinito, ```make test```
+- Per compilare il programma usando i thread specificare l'opzione ```THREAD=1```, eg ```make rebuild THREAD=1```
+- Per pulire i sorgenti, ```make clean```
+- Per aggiornare la documentazione, ```make doc```
+
 ### Specifica
 Si vuole realizzare un programma in C che utilizzi le system call (IPC), ove possibile, per implementare alcune operazioni su Matrici intere in maniera concorrente, distribuite su un certo numero di processi. Il progetto deve essere commentato in formato Doxygen, e corredato da uno script configurazione per tale tool e da uno script Makefile per la sua compilazione. Inoltre si devono allegare al progetto anche eventuali file di supporto.
 
