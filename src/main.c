@@ -14,12 +14,12 @@
  */
 
 // id delle varie IPC
-int shmidA;
-int shmidB;
-int shmidC;
-int shmidS;
-int semid;
-int msgid;
+int shmidA = -1;
+int shmidB = -1;
+int shmidC = -1;
+int shmidS = -1;
+int semid = -1;
+int msqid = -1;
 
 int N;
 int P;
@@ -60,16 +60,16 @@ int main(int argc, char *argv[])
 	println("[P] Esecuzione programma");
 
 	// creare la memoria condivisa
-	shmidA = create_shm(argv[3], 10, N * N * sizeof(int));
-	shmidB = create_shm(argv[3], 20, N * N * sizeof(int));
-	shmidC = create_shm(argv[3], 30, N * N * sizeof(int));
-	shmidS = create_shm(argv[3], 40, sizeof(long));
+	shmidA = create_shm(N * N * sizeof(int));
+	shmidB = create_shm(N * N * sizeof(int));
+	shmidC = create_shm(N * N * sizeof(int));
+	shmidS = create_shm(sizeof(long));
 
 	// creare semafori
-	semid = create_sem(argv[3], 50);
+	semid = create_sem();
 
 	// creare code di messaggi 
-	msgid = create_msg(argv[3], 60);
+	msqid = create_msg();
 
 	// leggo matrice A
 	ptr = attach_shm(shmidA);

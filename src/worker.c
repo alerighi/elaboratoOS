@@ -15,7 +15,6 @@
  * @author Alessandro Righi
  */
 
-
 /**
  * Notifica al padre il termine di un operazione
  *
@@ -28,7 +27,7 @@ static void notify_parent(int n)
 	message.type = MSG_OK;
 	message.i = n;
 	
-	msg_snd(msgid, &message);
+	msg_snd(msqid, &message);
 }
 
 /**

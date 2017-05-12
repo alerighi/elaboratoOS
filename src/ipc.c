@@ -18,23 +18,17 @@
  * Crea un area di memoria condivisa il cui id viene 
  * generato a partire dal nome del file
  * 
- * @param filename nome del file da passare a ftok()
- * @param id id da passare ad ftok()
  * @param size dimensione dell'area di memoria condivisa
  * @return id memoria condivisa
  */ 
-int create_shm(char *filename, int id, size_t size)
+int create_shm(size_t size)
 {
 	int shmid;
-	key_t key;
 
-	if ((key = ftok(filename, id)) == -1)
-		die("Errore creazione key shm con ftok()");
-
-	if ((shmid = shmget(key, size, IPC_CREAT|0600)) == -1)
+	if ((shmid = shmget(IPC_PRIVATE, size, IPC_CREAT|0600)) == -1)
 		die("Errore creazione area memoria condivisa");
 
-	println("Creata area di memoria condivisa size = %dB, key = %#010x, shmid = %d", size, key, shmid);
+	println("Creata area di memoria condivisa size = %dB, shmid = %d", size, shmid);
 
 	return shmid;
 }
@@ -81,28 +75,22 @@ void detach_shm(void *ptr)
 /**
  * Crea il semaforo usato dall'applicazione
  *
- * @param filename file da passare a ftok()
- * @param id id da passare ad ftok()
  * @return semid creato
  */
-int create_sem(char *filename, int id)
+int create_sem()
 {
-	key_t key;
 	int semid;
 	union semun {
         int val;
     } arg = {.val = 1};
-
-	if ((key = ftok(filename, id)) == -1)
-		die("Errore creazione key sem con ftok()");
 	
-	if ((semid = semget(key, 1, IPC_CREAT|0666)) == -1)
+	if ((semid = semget(IPC_PRIVATE, 1, IPC_CREAT|0666)) == -1)
 		die("Errore creazione semafori semget()");
 	
 	if (semctl(semid, 0, SETVAL, arg) == -1)
 		die("Errore semctl()");
 
-	println("Creato semaforo key = %#010x, semid = %d", key, semid);
+	println("Creato semaforo semid = %d", semid);
 
 	return semid;
 }
@@ -149,23 +137,19 @@ void sem_V(int semid)
 /**
  * Crea una coda di messaggi
  * 
- * @param filename filename da passare ad ftok()
- * @param id id da passare ad ftok();
  * @return msgid della coda creata
  */
-int create_msg(char *filename, int id)
+int create_msg()
 {
-	int msgid;
-	key_t key;
-
-	if ((key = ftok(filename, id)) == -1)
-		die("Errore creazione key msg con ftok()");
+	int msqid;
 
 	// TODO: assicurarsi che la coda sia nuova!
-	if ((msgid = msgget(key, IPC_CREAT|0666)) == -1)
+	if ((msqid = msgget(IPC_PRIVATE, IPC_CREAT|0666)) == -1)
 		die("Errore creazione coda di messaggi msgget()");
 
-	return msgid;
+	println("Creata coda di messaggi msqid = %d", msqid);
+
+	return msqid;
 }
 
 /**
@@ -173,10 +157,12 @@ int create_msg(char *filename, int id)
  *
  * @param msgid id della cosa di messaggi da eliminare
  */
-void delete_msg(int msgid)
+void delete_msg(int msqid)
 {
-	if (msgctl(msgid, IPC_RMID, NULL) == -1)
-		die("Errore rimozione coda di messaggi msgid = %d", msgid);
+	if (msgctl(msqid, IPC_RMID, NULL) == -1)
+		die("Errore rimozione coda di messaggi msgid = %d", msqid);
+	
+	println("Eliminata coda di messaggi msqid = %d", msqid);
 }
 
 /**

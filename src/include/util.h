@@ -15,7 +15,7 @@ extern int shmidB;
 extern int shmidC;
 extern int shmidS;
 extern int semid;
-extern int msgid;
+extern int msqid;
 
 // parametri del programma
 extern int N;

@@ -36,26 +36,24 @@ void cleanup(void)
 				err("Errore wait(NULL)");
 		}
 	}
-	
+
 	// rimozione memoria condivisa
-	if (shmidA)
+	if (shmidA != -1)
 		delete_shm(shmidA);
-	if (shmidB)
+	if (shmidB != -1)
 		delete_shm(shmidB);
-	if (shmidC)
+	if (shmidC != -1)
 		delete_shm(shmidC);
-	if (shmidS)
+	if (shmidS != -1)
 		delete_shm(shmidS);
 
 	// rimozione semafori
-	if (semid)
+	if (semid != -1)
 		delete_sem(semid);
 
 	// eliminazione coda di messaggi
-	if (msgid)
-		delete_msg(msgid);
-
-
+	if (msqid != -1)
+		delete_msg(msqid);
 }
 
 /**
@@ -104,7 +102,7 @@ int wait_process()
 {
 	struct message message;
 
-	msg_rcv(msgid, MSG_OK, &message);
+	msg_rcv(msqid, MSG_OK, &message);
 		
 	return message.i;
 }

@@ -23,18 +23,18 @@ struct message {
 #define MSG_SUM 3
 
 // shm
-int create_shm(char *filename, int id, size_t size);
+int create_shm(size_t size);
 void delete_shm(int shmid);
 void* attach_shm(int shmid);
 void detach_shm(void *ptr);
 
 // sem
-int create_sem(char *filename, int id);
+int create_sem(void);
 void delete_sem(int semid);
 void sem_P(int semid);
 void sem_V(int semid);
 
-int create_msg(char *filename, int id);
+int create_msg(void);
 void delete_msg(int msgid);
 void msg_snd(int msgid, struct message *msg);
 void msg_rcv(int msgid, int type, struct message *msg);
