@@ -9,10 +9,10 @@ Contiene le definizioni per il file \hyperlink{io_8c}{io.\+c}.
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{io_8h_a55633f74dda2cfbb03c9f50bca1838da}\label{io_8h_a55633f74dda2cfbb03c9f50bca1838da}} 
-\#define \hyperlink{io_8h_a55633f74dda2cfbb03c9f50bca1838da}{die}(\hyperlink{structmessage}{message}, ...)~\hyperlink{io_8c_a3e17187cacb481417c7a63fc67c41ae6}{msg\+\_\+error}(1, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, \hyperlink{structmessage}{message}, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\#define \hyperlink{io_8h_a55633f74dda2cfbb03c9f50bca1838da}{die}(\hyperlink{structmessage}{message}, ...)~\hyperlink{io_8c_ac11bb0265ec3645781853df6b95aa331}{msg\+\_\+error}(1, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, \+\_\+\+\_\+func\+\_\+\+\_\+, \hyperlink{structmessage}{message}, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
 \begin{DoxyCompactList}\small\item\em Stampa su stderr un messaggio di errore e termina con stato 1. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{io_8h_a437077d189da2b3c79bd91423d9b9833}\label{io_8h_a437077d189da2b3c79bd91423d9b9833}} 
-\#define \hyperlink{io_8h_a437077d189da2b3c79bd91423d9b9833}{err}(\hyperlink{structmessage}{message}, ...)~\hyperlink{io_8c_a3e17187cacb481417c7a63fc67c41ae6}{msg\+\_\+error}(0, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, \hyperlink{structmessage}{message}, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\#define \hyperlink{io_8h_a437077d189da2b3c79bd91423d9b9833}{err}(\hyperlink{structmessage}{message}, ...)~\hyperlink{io_8c_ac11bb0265ec3645781853df6b95aa331}{msg\+\_\+error}(0, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, \+\_\+\+\_\+func\+\_\+\+\_\+, \hyperlink{structmessage}{message}, \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
 \begin{DoxyCompactList}\small\item\em Stama su stderr un messaggio di errore e non termina. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
@@ -23,7 +23,7 @@ void \hyperlink{io_8h_a4e4a79deda2e544dbdf57eedb67a1fde}{println} (const char $\
 \begin{DoxyCompactList}\small\item\em Stampa su standard output un messaggio di log con ritorno a capo. \end{DoxyCompactList}\item 
 void \hyperlink{io_8h_a08b7ffa104f75393f21b4573e9573f7c}{print\+\_\+matrix} (int n, int matrix\mbox{[}n\mbox{]}\mbox{[}n\mbox{]})
 \begin{DoxyCompactList}\small\item\em Stampa una matrice su standard output. \end{DoxyCompactList}\item 
-void \hyperlink{io_8h_a3e17187cacb481417c7a63fc67c41ae6}{msg\+\_\+error} (int status, const char $\ast$file, int line, const char $\ast$\hyperlink{structmessage}{message},...)
+void \hyperlink{io_8h_ac11bb0265ec3645781853df6b95aa331}{msg\+\_\+error} (int status, const char $\ast$file, int line, const char $\ast$func, const char $\ast$\hyperlink{structmessage}{message},...)
 \begin{DoxyCompactList}\small\item\em Stampa su standard error un messaggio di errore. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{io_8h_ae8605e2b78cd4a81b6c6b5c30cb7366a}\label{io_8h_ae8605e2b78cd4a81b6c6b5c30cb7366a}} 
 void \hyperlink{io_8h_ae8605e2b78cd4a81b6c6b5c30cb7366a}{usage} (void)
@@ -39,11 +39,11 @@ Alessandro Righi
 
 
 \subsection{Documentazione delle funzioni}
-\mbox{\Hypertarget{io_8h_a3e17187cacb481417c7a63fc67c41ae6}\label{io_8h_a3e17187cacb481417c7a63fc67c41ae6}} 
+\mbox{\Hypertarget{io_8h_ac11bb0265ec3645781853df6b95aa331}\label{io_8h_ac11bb0265ec3645781853df6b95aa331}} 
 \index{io.\+h@{io.\+h}!msg\+\_\+error@{msg\+\_\+error}}
 \index{msg\+\_\+error@{msg\+\_\+error}!io.\+h@{io.\+h}}
 \subsubsection{\texorpdfstring{msg\+\_\+error()}{msg\_error()}}
-{\footnotesize\ttfamily void msg\+\_\+error (\begin{DoxyParamCaption}\item[{int}]{status,  }\item[{const char $\ast$}]{file,  }\item[{int}]{line,  }\item[{const char $\ast$}]{message,  }\item[{}]{... }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void msg\+\_\+error (\begin{DoxyParamCaption}\item[{int}]{status,  }\item[{const char $\ast$}]{file,  }\item[{int}]{line,  }\item[{const char $\ast$}]{func,  }\item[{const char $\ast$}]{message,  }\item[{}]{... }\end{DoxyParamCaption})}
 
 
 

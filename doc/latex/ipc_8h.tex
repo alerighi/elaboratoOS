@@ -26,7 +26,7 @@ struct \hyperlink{structmessage}{message}
 \subsection*{Funzioni}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{ipc_8h_a479c20aa177fa1c60a855bdb9d98e7b6}{create\+\_\+shm} (char $\ast$filename, int id, size\+\_\+t size)
+int \hyperlink{ipc_8h_a1357fd6f1492b959fc915a293b1ede25}{create\+\_\+shm} (size\+\_\+t size)
 \begin{DoxyCompactList}\small\item\em Crea un area di memoria condivisa il cui id viene generato a partire dal nome del file. \end{DoxyCompactList}\item 
 void \hyperlink{ipc_8h_a09eda768fa063fd854e17286dc6bd5e7}{delete\+\_\+shm} (int shmid)
 \begin{DoxyCompactList}\small\item\em Elimina un area di memoria condivisa. \end{DoxyCompactList}\item 
@@ -34,7 +34,7 @@ void $\ast$ \hyperlink{ipc_8h_ab0de4edddd2bb63140566a065e04ff8d}{attach\+\_\+shm
 \begin{DoxyCompactList}\small\item\em Collega un segmento di area di memoria condivisa. \end{DoxyCompactList}\item 
 void \hyperlink{ipc_8h_a1eaf641046559bcb14f88e6f9e54dd41}{detach\+\_\+shm} (void $\ast$ptr)
 \begin{DoxyCompactList}\small\item\em Distacca un segmento di memoria condivisa. \end{DoxyCompactList}\item 
-int \hyperlink{ipc_8h_ae143a77ee1601fcc7a76ca3365615e33}{create\+\_\+sem} (char $\ast$filename, int id)
+int \hyperlink{ipc_8h_ad1dce81f3f212dfe8e57912750f52009}{create\+\_\+sem} (void)
 \begin{DoxyCompactList}\small\item\em Crea il semaforo usato dall\textquotesingle{}applicazione. \end{DoxyCompactList}\item 
 void \hyperlink{ipc_8h_aa7d96eabbcfc88ef4c5363220cd23fe1}{delete\+\_\+sem} (int semid)
 \begin{DoxyCompactList}\small\item\em Elimina un semaforo. \end{DoxyCompactList}\item 
@@ -42,10 +42,14 @@ void \hyperlink{ipc_8h_a1e8bf43fa9515874ed9c4957cb72bfec}{sem\+\_\+P} (int semid
 \begin{DoxyCompactList}\small\item\em Esegue l\textquotesingle{}operazione P (wait) sul semaforo indicato. \end{DoxyCompactList}\item 
 void \hyperlink{ipc_8h_accfd1f9fc643a393c4c2544e2eed1f26}{sem\+\_\+V} (int semid)
 \begin{DoxyCompactList}\small\item\em Esegue l\textquotesingle{}operazione V (signal) sul semaforo indicato. \end{DoxyCompactList}\item 
-int \hyperlink{ipc_8h_ac99f1710f9340dc83cabf60922566f45}{create\+\_\+msg} (char $\ast$filename, int id)
+int \hyperlink{ipc_8h_a32b6139c8a3ce1118cd2d9d6ad8d7010}{create\+\_\+msg} (void)
 \begin{DoxyCompactList}\small\item\em Crea una coda di messaggi. \end{DoxyCompactList}\item 
 void \hyperlink{ipc_8h_aea74dafc7a156a96b3a32961e55c758f}{delete\+\_\+msg} (int msgid)
-\begin{DoxyCompactList}\small\item\em Elimina una coda di messaggi. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Elimina una coda di messaggi. \end{DoxyCompactList}\item 
+void \hyperlink{ipc_8h_a88429600a9045f5fc416ca237395c67e}{msg\+\_\+snd} (int msgid, struct \hyperlink{structmessage}{message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Invia un messaggio ad una coda di messaggi. \end{DoxyCompactList}\item 
+void \hyperlink{ipc_8h_a7b1fa983df855e04f15c884d4f82a7b1}{msg\+\_\+rcv} (int msgid, int type, struct \hyperlink{structmessage}{message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Riceve un messaggio da una coda di messaggi. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descrizione dettagliata}
@@ -74,61 +78,47 @@ Collega un segmento di area di memoria condivisa.
 \end{DoxyParams}
 
 
-Definizione alla linea 60 del file ipc.\+c.
+Definizione alla linea 54 del file ipc.\+c.
 
-\mbox{\Hypertarget{ipc_8h_ac99f1710f9340dc83cabf60922566f45}\label{ipc_8h_ac99f1710f9340dc83cabf60922566f45}} 
+\mbox{\Hypertarget{ipc_8h_a32b6139c8a3ce1118cd2d9d6ad8d7010}\label{ipc_8h_a32b6139c8a3ce1118cd2d9d6ad8d7010}} 
 \index{ipc.\+h@{ipc.\+h}!create\+\_\+msg@{create\+\_\+msg}}
 \index{create\+\_\+msg@{create\+\_\+msg}!ipc.\+h@{ipc.\+h}}
 \subsubsection{\texorpdfstring{create\+\_\+msg()}{create\_msg()}}
-{\footnotesize\ttfamily int create\+\_\+msg (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int create\+\_\+msg (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
 Crea una coda di messaggi. 
 
-
-\begin{DoxyParams}{Parametri}
-{\em filename} & filename da passare ad ftok() \\
-\hline
-{\em id} & id da passare ad ftok(); \\
-\hline
-\end{DoxyParams}
 \begin{DoxyReturn}{Restituisce}
 msgid della coda creata 
 \end{DoxyReturn}
 
 
-Definizione alla linea 156 del file ipc.\+c.
+Definizione alla linea 142 del file ipc.\+c.
 
-\mbox{\Hypertarget{ipc_8h_ae143a77ee1601fcc7a76ca3365615e33}\label{ipc_8h_ae143a77ee1601fcc7a76ca3365615e33}} 
+\mbox{\Hypertarget{ipc_8h_ad1dce81f3f212dfe8e57912750f52009}\label{ipc_8h_ad1dce81f3f212dfe8e57912750f52009}} 
 \index{ipc.\+h@{ipc.\+h}!create\+\_\+sem@{create\+\_\+sem}}
 \index{create\+\_\+sem@{create\+\_\+sem}!ipc.\+h@{ipc.\+h}}
 \subsubsection{\texorpdfstring{create\+\_\+sem()}{create\_sem()}}
-{\footnotesize\ttfamily int create\+\_\+sem (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int create\+\_\+sem (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
 Crea il semaforo usato dall\textquotesingle{}applicazione. 
 
-
-\begin{DoxyParams}{Parametri}
-{\em filename} & file da passare a ftok() \\
-\hline
-{\em id} & id da passare ad ftok() \\
-\hline
-\end{DoxyParams}
 \begin{DoxyReturn}{Restituisce}
 semid creato 
 \end{DoxyReturn}
 
 
-Definizione alla linea 88 del file ipc.\+c.
+Definizione alla linea 80 del file ipc.\+c.
 
-\mbox{\Hypertarget{ipc_8h_a479c20aa177fa1c60a855bdb9d98e7b6}\label{ipc_8h_a479c20aa177fa1c60a855bdb9d98e7b6}} 
+\mbox{\Hypertarget{ipc_8h_a1357fd6f1492b959fc915a293b1ede25}\label{ipc_8h_a1357fd6f1492b959fc915a293b1ede25}} 
 \index{ipc.\+h@{ipc.\+h}!create\+\_\+shm@{create\+\_\+shm}}
 \index{create\+\_\+shm@{create\+\_\+shm}!ipc.\+h@{ipc.\+h}}
 \subsubsection{\texorpdfstring{create\+\_\+shm()}{create\_shm()}}
-{\footnotesize\ttfamily int create\+\_\+shm (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{int}]{id,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int create\+\_\+shm (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
 
 
 
@@ -136,10 +126,6 @@ Crea un area di memoria condivisa il cui id viene generato a partire dal nome de
 
 
 \begin{DoxyParams}{Parametri}
-{\em filename} & nome del file da passare a ftok() \\
-\hline
-{\em id} & id da passare ad ftok() \\
-\hline
 {\em size} & dimensione dell\textquotesingle{}area di memoria condivisa \\
 \hline
 \end{DoxyParams}
@@ -148,13 +134,13 @@ id memoria condivisa
 \end{DoxyReturn}
 
 
-Definizione alla linea 26 del file ipc.\+c.
+Definizione alla linea 24 del file ipc.\+c.
 
 \mbox{\Hypertarget{ipc_8h_aea74dafc7a156a96b3a32961e55c758f}\label{ipc_8h_aea74dafc7a156a96b3a32961e55c758f}} 
 \index{ipc.\+h@{ipc.\+h}!delete\+\_\+msg@{delete\+\_\+msg}}
 \index{delete\+\_\+msg@{delete\+\_\+msg}!ipc.\+h@{ipc.\+h}}
 \subsubsection{\texorpdfstring{delete\+\_\+msg()}{delete\_msg()}}
-{\footnotesize\ttfamily void delete\+\_\+msg (\begin{DoxyParamCaption}\item[{int}]{msgid }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void delete\+\_\+msg (\begin{DoxyParamCaption}\item[{int}]{msqid }\end{DoxyParamCaption})}
 
 
 
@@ -167,7 +153,7 @@ Elimina una coda di messaggi.
 \end{DoxyParams}
 
 
-Definizione alla linea 176 del file ipc.\+c.
+Definizione alla linea 160 del file ipc.\+c.
 
 \mbox{\Hypertarget{ipc_8h_aa7d96eabbcfc88ef4c5363220cd23fe1}\label{ipc_8h_aa7d96eabbcfc88ef4c5363220cd23fe1}} 
 \index{ipc.\+h@{ipc.\+h}!delete\+\_\+sem@{delete\+\_\+sem}}
@@ -186,7 +172,7 @@ Elimina un semaforo.
 \end{DoxyParams}
 
 
-Definizione alla linea 115 del file ipc.\+c.
+Definizione alla linea 103 del file ipc.\+c.
 
 \mbox{\Hypertarget{ipc_8h_a09eda768fa063fd854e17286dc6bd5e7}\label{ipc_8h_a09eda768fa063fd854e17286dc6bd5e7}} 
 \index{ipc.\+h@{ipc.\+h}!delete\+\_\+shm@{delete\+\_\+shm}}
@@ -205,7 +191,7 @@ Elimina un area di memoria condivisa.
 \end{DoxyParams}
 
 
-Definizione alla linea 47 del file ipc.\+c.
+Definizione alla linea 41 del file ipc.\+c.
 
 \mbox{\Hypertarget{ipc_8h_a1eaf641046559bcb14f88e6f9e54dd41}\label{ipc_8h_a1eaf641046559bcb14f88e6f9e54dd41}} 
 \index{ipc.\+h@{ipc.\+h}!detach\+\_\+shm@{detach\+\_\+shm}}
@@ -224,7 +210,51 @@ Distacca un segmento di memoria condivisa.
 \end{DoxyParams}
 
 
-Definizione alla linea 75 del file ipc.\+c.
+Definizione alla linea 69 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8h_a7b1fa983df855e04f15c884d4f82a7b1}\label{ipc_8h_a7b1fa983df855e04f15c884d4f82a7b1}} 
+\index{ipc.\+h@{ipc.\+h}!msg\+\_\+rcv@{msg\+\_\+rcv}}
+\index{msg\+\_\+rcv@{msg\+\_\+rcv}!ipc.\+h@{ipc.\+h}}
+\subsubsection{\texorpdfstring{msg\+\_\+rcv()}{msg\_rcv()}}
+{\footnotesize\ttfamily void msg\+\_\+rcv (\begin{DoxyParamCaption}\item[{int}]{msgid,  }\item[{int}]{type,  }\item[{struct \hyperlink{structmessage}{message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Riceve un messaggio da una coda di messaggi. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em msgid} & id della coda di messaggi \\
+\hline
+{\em type} & tipo del messaggio da ricevere \\
+\hline
+{\em message} & memoria dove salvare il messaggio \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 175 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8h_a88429600a9045f5fc416ca237395c67e}\label{ipc_8h_a88429600a9045f5fc416ca237395c67e}} 
+\index{ipc.\+h@{ipc.\+h}!msg\+\_\+snd@{msg\+\_\+snd}}
+\index{msg\+\_\+snd@{msg\+\_\+snd}!ipc.\+h@{ipc.\+h}}
+\subsubsection{\texorpdfstring{msg\+\_\+snd()}{msg\_snd()}}
+{\footnotesize\ttfamily void msg\+\_\+snd (\begin{DoxyParamCaption}\item[{int}]{msgid,  }\item[{struct \hyperlink{structmessage}{message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Invia un messaggio ad una coda di messaggi. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em msgid} & id della coda di messaggi \\
+\hline
+{\em message} & messaggio da inviare \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 187 del file ipc.\+c.
 
 \mbox{\Hypertarget{ipc_8h_a1e8bf43fa9515874ed9c4957cb72bfec}\label{ipc_8h_a1e8bf43fa9515874ed9c4957cb72bfec}} 
 \index{ipc.\+h@{ipc.\+h}!sem\+\_\+P@{sem\+\_\+P}}
@@ -243,7 +273,7 @@ Esegue l\textquotesingle{}operazione P (wait) sul semaforo indicato.
 \end{DoxyParams}
 
 
-Definizione alla linea 128 del file ipc.\+c.
+Definizione alla linea 116 del file ipc.\+c.
 
 \mbox{\Hypertarget{ipc_8h_accfd1f9fc643a393c4c2544e2eed1f26}\label{ipc_8h_accfd1f9fc643a393c4c2544e2eed1f26}} 
 \index{ipc.\+h@{ipc.\+h}!sem\+\_\+V@{sem\+\_\+V}}
@@ -262,5 +292,5 @@ Esegue l\textquotesingle{}operazione V (signal) sul semaforo indicato.
 \end{DoxyParams}
 
 
-Definizione alla linea 141 del file ipc.\+c.
+Definizione alla linea 129 del file ipc.\+c.
 

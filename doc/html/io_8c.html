@@ -85,9 +85,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:a3e17187cacb481417c7a63fc67c41ae6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#a3e17187cacb481417c7a63fc67c41ae6">msg_error</a> (int status, const char *file, int line, const char *<a class="el" href="structmessage.html">message</a>,...)</td></tr>
-<tr class="memdesc:a3e17187cacb481417c7a63fc67c41ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stampa su standard error un messaggio di errore.  <a href="#a3e17187cacb481417c7a63fc67c41ae6">Continua...</a><br /></td></tr>
-<tr class="separator:a3e17187cacb481417c7a63fc67c41ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac11bb0265ec3645781853df6b95aa331"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#ac11bb0265ec3645781853df6b95aa331">msg_error</a> (int status, const char *file, int line, const char *func, const char *<a class="el" href="structmessage.html">message</a>,...)</td></tr>
+<tr class="memdesc:ac11bb0265ec3645781853df6b95aa331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stampa su standard error un messaggio di errore.  <a href="#ac11bb0265ec3645781853df6b95aa331">Continua...</a><br /></td></tr>
+<tr class="separator:ac11bb0265ec3645781853df6b95aa331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e4a79deda2e544dbdf57eedb67a1fde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#a4e4a79deda2e544dbdf57eedb67a1fde">println</a> (const char *<a class="el" href="structmessage.html">message</a>,...)</td></tr>
 <tr class="memdesc:a4e4a79deda2e544dbdf57eedb67a1fde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stampa su standard output un messaggio di log con ritorno a capo.  <a href="#a4e4a79deda2e544dbdf57eedb67a1fde">Continua...</a><br /></td></tr>
 <tr class="separator:a4e4a79deda2e544dbdf57eedb67a1fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,8 +108,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 
 <p class="definition">Definizione nel file <a class="el" href="io_8c_source.html">io.c</a>.</p>
 </div><h2 class="groupheader">Documentazione delle funzioni</h2>
-<a id="a3e17187cacb481417c7a63fc67c41ae6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e17187cacb481417c7a63fc67c41ae6">&#9670;&nbsp;</a></span>msg_error()</h2>
+<a id="ac11bb0265ec3645781853df6b95aa331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac11bb0265ec3645781853df6b95aa331">&#9670;&nbsp;</a></span>msg_error()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,6 +131,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

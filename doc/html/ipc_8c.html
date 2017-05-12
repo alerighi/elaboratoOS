@@ -78,14 +78,15 @@ $(function() {
 <code>#include &lt;sys/types.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="io_8h_source.html">include/io.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ipc_8h_source.html">include/ipc.h</a>&quot;</code><br />
 </div>
 <p><a href="ipc_8c_source.html">Vai al codice sorgente di questo file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:a479c20aa177fa1c60a855bdb9d98e7b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a479c20aa177fa1c60a855bdb9d98e7b6">create_shm</a> (char *filename, int id, size_t size)</td></tr>
-<tr class="memdesc:a479c20aa177fa1c60a855bdb9d98e7b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un area di memoria condivisa il cui id viene generato a partire dal nome del file.  <a href="#a479c20aa177fa1c60a855bdb9d98e7b6">Continua...</a><br /></td></tr>
-<tr class="separator:a479c20aa177fa1c60a855bdb9d98e7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1357fd6f1492b959fc915a293b1ede25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a1357fd6f1492b959fc915a293b1ede25">create_shm</a> (size_t size)</td></tr>
+<tr class="memdesc:a1357fd6f1492b959fc915a293b1ede25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un area di memoria condivisa il cui id viene generato a partire dal nome del file.  <a href="#a1357fd6f1492b959fc915a293b1ede25">Continua...</a><br /></td></tr>
+<tr class="separator:a1357fd6f1492b959fc915a293b1ede25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09eda768fa063fd854e17286dc6bd5e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a09eda768fa063fd854e17286dc6bd5e7">delete_shm</a> (int shmid)</td></tr>
 <tr class="memdesc:a09eda768fa063fd854e17286dc6bd5e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un area di memoria condivisa.  <a href="#a09eda768fa063fd854e17286dc6bd5e7">Continua...</a><br /></td></tr>
 <tr class="separator:a09eda768fa063fd854e17286dc6bd5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -95,9 +96,9 @@ Funzioni</h2></td></tr>
 <tr class="memitem:a1eaf641046559bcb14f88e6f9e54dd41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a1eaf641046559bcb14f88e6f9e54dd41">detach_shm</a> (void *ptr)</td></tr>
 <tr class="memdesc:a1eaf641046559bcb14f88e6f9e54dd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distacca un segmento di memoria condivisa.  <a href="#a1eaf641046559bcb14f88e6f9e54dd41">Continua...</a><br /></td></tr>
 <tr class="separator:a1eaf641046559bcb14f88e6f9e54dd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae143a77ee1601fcc7a76ca3365615e33"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#ae143a77ee1601fcc7a76ca3365615e33">create_sem</a> (char *filename, int id)</td></tr>
-<tr class="memdesc:ae143a77ee1601fcc7a76ca3365615e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea il semaforo usato dall'applicazione.  <a href="#ae143a77ee1601fcc7a76ca3365615e33">Continua...</a><br /></td></tr>
-<tr class="separator:ae143a77ee1601fcc7a76ca3365615e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55f58caff5dc1ef28a9b684697f8b44f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a55f58caff5dc1ef28a9b684697f8b44f">create_sem</a> ()</td></tr>
+<tr class="memdesc:a55f58caff5dc1ef28a9b684697f8b44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea il semaforo usato dall'applicazione.  <a href="#a55f58caff5dc1ef28a9b684697f8b44f">Continua...</a><br /></td></tr>
+<tr class="separator:a55f58caff5dc1ef28a9b684697f8b44f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7d96eabbcfc88ef4c5363220cd23fe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#aa7d96eabbcfc88ef4c5363220cd23fe1">delete_sem</a> (int semid)</td></tr>
 <tr class="memdesc:aa7d96eabbcfc88ef4c5363220cd23fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un semaforo.  <a href="#aa7d96eabbcfc88ef4c5363220cd23fe1">Continua...</a><br /></td></tr>
 <tr class="separator:aa7d96eabbcfc88ef4c5363220cd23fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,12 +108,18 @@ Funzioni</h2></td></tr>
 <tr class="memitem:accfd1f9fc643a393c4c2544e2eed1f26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#accfd1f9fc643a393c4c2544e2eed1f26">sem_V</a> (int semid)</td></tr>
 <tr class="memdesc:accfd1f9fc643a393c4c2544e2eed1f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esegue l'operazione V (signal) sul semaforo indicato.  <a href="#accfd1f9fc643a393c4c2544e2eed1f26">Continua...</a><br /></td></tr>
 <tr class="separator:accfd1f9fc643a393c4c2544e2eed1f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac99f1710f9340dc83cabf60922566f45"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#ac99f1710f9340dc83cabf60922566f45">create_msg</a> (char *filename, int id)</td></tr>
-<tr class="memdesc:ac99f1710f9340dc83cabf60922566f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea una coda di messaggi.  <a href="#ac99f1710f9340dc83cabf60922566f45">Continua...</a><br /></td></tr>
-<tr class="separator:ac99f1710f9340dc83cabf60922566f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea74dafc7a156a96b3a32961e55c758f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#aea74dafc7a156a96b3a32961e55c758f">delete_msg</a> (int msgid)</td></tr>
-<tr class="memdesc:aea74dafc7a156a96b3a32961e55c758f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina una coda di messaggi.  <a href="#aea74dafc7a156a96b3a32961e55c758f">Continua...</a><br /></td></tr>
-<tr class="separator:aea74dafc7a156a96b3a32961e55c758f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73eeace61d9849ad079b882258888a96"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a73eeace61d9849ad079b882258888a96">create_msg</a> ()</td></tr>
+<tr class="memdesc:a73eeace61d9849ad079b882258888a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea una coda di messaggi.  <a href="#a73eeace61d9849ad079b882258888a96">Continua...</a><br /></td></tr>
+<tr class="separator:a73eeace61d9849ad079b882258888a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61800637489c83ee010e7d514db5141f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a61800637489c83ee010e7d514db5141f">delete_msg</a> (int msqid)</td></tr>
+<tr class="memdesc:a61800637489c83ee010e7d514db5141f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina una coda di messaggi.  <a href="#a61800637489c83ee010e7d514db5141f">Continua...</a><br /></td></tr>
+<tr class="separator:a61800637489c83ee010e7d514db5141f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79dae67c3f46cc42ca2231eeb7cc5f26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a79dae67c3f46cc42ca2231eeb7cc5f26">msg_rcv</a> (int msgid, int type, struct <a class="el" href="structmessage.html">message</a> *<a class="el" href="structmessage.html">message</a>)</td></tr>
+<tr class="memdesc:a79dae67c3f46cc42ca2231eeb7cc5f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Riceve un messaggio da una coda di messaggi.  <a href="#a79dae67c3f46cc42ca2231eeb7cc5f26">Continua...</a><br /></td></tr>
+<tr class="separator:a79dae67c3f46cc42ca2231eeb7cc5f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35d77e3b18c25f5e0e49fd2f087f3577"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a35d77e3b18c25f5e0e49fd2f087f3577">msg_snd</a> (int msgid, struct <a class="el" href="structmessage.html">message</a> *<a class="el" href="structmessage.html">message</a>)</td></tr>
+<tr class="memdesc:a35d77e3b18c25f5e0e49fd2f087f3577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invia un messaggio ad una coda di messaggi.  <a href="#a35d77e3b18c25f5e0e49fd2f087f3577">Continua...</a><br /></td></tr>
+<tr class="separator:a35d77e3b18c25f5e0e49fd2f087f3577"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrizione dettagliata</h2>
 <div class="textblock"><p>Contiene funzioni riguardanti le IPC. </p>
@@ -144,12 +151,12 @@ Funzioni</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00060">60</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00054">54</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
 
 </div>
 </div>
-<a id="ac99f1710f9340dc83cabf60922566f45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac99f1710f9340dc83cabf60922566f45">&#9670;&nbsp;</a></span>create_msg()</h2>
+<a id="a73eeace61d9849ad079b882258888a96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73eeace61d9849ad079b882258888a96">&#9670;&nbsp;</a></span>create_msg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,39 +164,22 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="memname">int create_msg </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Crea una coda di messaggi. </p>
-<dl class="params"><dt>Parametri</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">filename</td><td>filename da passare ad ftok() </td></tr>
-    <tr><td class="paramname">id</td><td>id da passare ad ftok(); </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Restituisce</dt><dd>msgid della coda creata </dd></dl>
 
-<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00156">156</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00142">142</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
 
 </div>
 </div>
-<a id="ae143a77ee1601fcc7a76ca3365615e33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae143a77ee1601fcc7a76ca3365615e33">&#9670;&nbsp;</a></span>create_sem()</h2>
+<a id="a55f58caff5dc1ef28a9b684697f8b44f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55f58caff5dc1ef28a9b684697f8b44f">&#9670;&nbsp;</a></span>create_sem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,39 +187,22 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="memname">int create_sem </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Crea il semaforo usato dall'applicazione. </p>
-<dl class="params"><dt>Parametri</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">filename</td><td>file da passare a ftok() </td></tr>
-    <tr><td class="paramname">id</td><td>id da passare ad ftok() </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Restituisce</dt><dd>semid creato </dd></dl>
 
-<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00088">88</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00080">80</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
 
 </div>
 </div>
-<a id="a479c20aa177fa1c60a855bdb9d98e7b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a479c20aa177fa1c60a855bdb9d98e7b6">&#9670;&nbsp;</a></span>create_shm()</h2>
+<a id="a1357fd6f1492b959fc915a293b1ede25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1357fd6f1492b959fc915a293b1ede25">&#9670;&nbsp;</a></span>create_shm()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -237,25 +210,9 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="memname">int create_shm </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>size</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -263,20 +220,18 @@ Funzioni</h2></td></tr>
 <p>Crea un area di memoria condivisa il cui id viene generato a partire dal nome del file. </p>
 <dl class="params"><dt>Parametri</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>nome del file da passare a ftok() </td></tr>
-    <tr><td class="paramname">id</td><td>id da passare ad ftok() </td></tr>
     <tr><td class="paramname">size</td><td>dimensione dell'area di memoria condivisa </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Restituisce</dt><dd>id memoria condivisa </dd></dl>
 
-<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00026">26</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00024">24</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
 
 </div>
 </div>
-<a id="aea74dafc7a156a96b3a32961e55c758f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea74dafc7a156a96b3a32961e55c758f">&#9670;&nbsp;</a></span>delete_msg()</h2>
+<a id="a61800637489c83ee010e7d514db5141f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61800637489c83ee010e7d514db5141f">&#9670;&nbsp;</a></span>delete_msg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +240,7 @@ Funzioni</h2></td></tr>
           <td class="memname">void delete_msg </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>msgid</em></td><td>)</td>
+          <td class="paramname"><em>msqid</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -299,7 +254,7 @@ Funzioni</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00176">176</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00160">160</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
 
 </div>
 </div>
@@ -327,7 +282,7 @@ Funzioni</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00115">115</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00103">103</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
 
 </div>
 </div>
@@ -355,7 +310,7 @@ Funzioni</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00047">47</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00041">41</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
 
 </div>
 </div>
@@ -383,7 +338,92 @@ Funzioni</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00075">75</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00069">69</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="a79dae67c3f46cc42ca2231eeb7cc5f26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79dae67c3f46cc42ca2231eeb7cc5f26">&#9670;&nbsp;</a></span>msg_rcv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void msg_rcv </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>msgid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structmessage.html">message</a> *&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Riceve un messaggio da una coda di messaggi. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msgid</td><td>id della coda di messaggi </td></tr>
+    <tr><td class="paramname">type</td><td>tipo del messaggio da ricevere </td></tr>
+    <tr><td class="paramname">message</td><td>memoria dove salvare il messaggio </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00175">175</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="a35d77e3b18c25f5e0e49fd2f087f3577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35d77e3b18c25f5e0e49fd2f087f3577">&#9670;&nbsp;</a></span>msg_snd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void msg_snd </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>msgid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structmessage.html">message</a> *&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Invia un messaggio ad una coda di messaggi. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msgid</td><td>id della coda di messaggi </td></tr>
+    <tr><td class="paramname">message</td><td>messaggio da inviare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00187">187</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
 
 </div>
 </div>
@@ -411,7 +451,7 @@ Funzioni</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00128">128</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00116">116</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
 
 </div>
 </div>
@@ -439,7 +479,7 @@ Funzioni</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00141">141</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00129">129</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
 
 </div>
 </div>
