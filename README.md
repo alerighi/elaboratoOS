@@ -22,10 +22,7 @@ Il programma dovrà prendere 5 parametri:
 4. L’Ordine N (dimensione) delle due matrici.
 5. Il numero P di processi concorrenti da utilizzare.
 
-E.g.,
-```
-./calcola matA Matb MATc 6 4
-```
+E.g., ```./calcola matA Matb MATc 6 4```
 
 La matrice A è contenuta nel file matA, la matrice B è contenuta nel file Matb, le matrici sono di ordine 6 (matrici quadrate 6x6) e devono essere allocati 4 processi. La matrice C verrà salvata in MATc.
 
