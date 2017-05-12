@@ -26,6 +26,7 @@
  * @param status se > 0, termina con codice di uscita stato, se = 0, non termina
  * @param file file in cui si verifica l'errore
  * @param line linea in cui si verifica l'errore
+ * @param func funzione in cui si è verificato l'errore
  * @param message messaggio di errore da stampare
  */
 void msg_error(int status, const char *file, int line, const char *func, const char *message, ...)

@@ -13,11 +13,11 @@
  * @param n ordine delle matrici
  * @param matrixA prima matrice
  * @param matrixB seconda matrice
+ * @param matrixC matrice in cui salvare il risultato
  * @param i indice riga
  * @param j indice colonna
- * @return il valore della moltiplicazione
  */
-int product_row_column(int n, int matrixA[n][n], int matrixB[n][n], int i, int j)
+void product_row_column(int n, int matrixA[n][n], int matrixB[n][n], int matrixC[n][n], int i, int j)
 {
 	int k;
 	int result = 0;
@@ -25,7 +25,7 @@ int product_row_column(int n, int matrixA[n][n], int matrixB[n][n], int i, int j
 	for (k = 0; k < n; k++)
 		result += matrixA[i][k] * matrixB[k][j];
 
-	return result;
+	matrixC[i][j] = result;
 }
 
 /**

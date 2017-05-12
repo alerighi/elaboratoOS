@@ -79,6 +79,7 @@ void load_matrix(const char *filename, int n, int matrix[n][n])
  *
  * @param filename file su cui scrivere la matrice
  * @param matrix matrice da scrivere
+ * @param n ordine della matrice
  * @return n ordine della matrice 
  */
 void save_matrix(const char *filename, int n, int matrix[n][n])

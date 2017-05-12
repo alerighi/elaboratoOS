@@ -65,8 +65,7 @@ void run_worker(int pipe_fd, int n)
 		{
 			case MSG_MUL:
 				println("[F] Il figlio pid = %d esegue moltiplicazione (%d, %d)", getpid(), message.i, message.j);
-				res = product_row_column(N, matrixA, matrixB, message.i, message.j);
-				matrixC[message.i][message.j] = res;
+				product_row_column(N, matrixA, matrixB, matrixC, message.i, message.j);
 				break;
 			case MSG_SUM:
 				println("[F] Il figlio pid = %d esegue somma %d", getpid(), message.i);

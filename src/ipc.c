@@ -134,7 +134,7 @@ void sem_V(int semid)
 /**
  * Crea una coda di messaggi
  * 
- * @return msgid della coda creata
+ * @return msqid della coda creata
  */
 int create_msg()
 {
@@ -152,7 +152,7 @@ int create_msg()
 /**
  * Elimina una coda di messaggi 
  *
- * @param msgid id della cosa di messaggi da eliminare
+ * @param msqid id della cosa di messaggi da eliminare
  */
 void delete_msg(int msqid)
 {
@@ -165,24 +165,24 @@ void delete_msg(int msqid)
 /**
  * Riceve un messaggio da una coda di messaggi
  * 
- * @param msgid id della coda di messaggi
+ * @param msqid id della coda di messaggi
  * @param type tipo del messaggio da ricevere
  * @param message memoria dove salvare il messaggio 
  */
-void msg_rcv(int msgid, int type, struct message *message)
+void msg_rcv(int msqid, int type, struct message *message)
 {
-	if (msgrcv(msgid, message, sizeof(struct message) - sizeof(long), type, 0) == -1)
+	if (msgrcv(msqid, message, sizeof(struct message) - sizeof(long), type, 0) == -1)
 		die("Errore msgrcv");
 }
 
 /**
  * Invia un messaggio ad una coda di messaggi
  *
- * @param msgid id della coda di messaggi
+ * @param msqid id della coda di messaggi
  * @param message messaggio da inviare
  */
-void msg_snd(int msgid, struct message *message)
+void msg_snd(int msqid, struct message *message)
 {
-	if (msgsnd(msgid, message, sizeof(struct message) - sizeof(long), 0) == -1)
+	if (msgsnd(msqid, message, sizeof(struct message) - sizeof(long), 0) == -1)
 		die("Errore di invio messaggio notifica al padre!");
 }

@@ -59,7 +59,6 @@ void cleanup(void)
 /**
  * Crea un processo worker ed una pipe per inviargli comandi
  *
- * @param worker puntatore alla struttura descrittore del worker
  * @param n numero di sequenza del worker
  */
 void create_worker(int n)

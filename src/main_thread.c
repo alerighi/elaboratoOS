@@ -13,51 +13,77 @@
  * @author Alessandro Righi
  */
 
+/** puntatore all'area di memoria della matrice A */
 static int (*matrixA)[];
+
+/** puntatore all'area di memoria della matrice B */
 static int (*matrixB)[];
+
+/** puntatore all'area di memoria della matrice C */
 static int (*matrixC)[];
-static long sum;
+
+/** contiene la somma degli elementi della matrice risultante */
+static int sum;
+
+/** ordine delle matrici */
 static int N;
+
+/** mutex per proteggere la variabile sum */
 static pthread_mutex_t mutex;
 
 /** 
  * Struttura dati degli argomenti passati ai thread
  */
 struct thread_args {
-	enum { CMD_MUL, CMD_SUM } cmd;
+	/** indica la riga della matrice */
 	int i;
+	/** indica la colonna della matrice */
 	int j;
 };
 
 /**
- * Thread worker
+ * Thread worker per la moltiplicazione
  *
  * @param thread_args argomenti da passare al thread
  */
-static void *run_worker_thread(void *thread_arg) 
+static void *worker_thread_mul(void *thread_arg) 
+{
+	struct thread_args *args;
+	
+	args = (struct thread_args *) thread_arg; 
+	
+	// esegue la moltiplicazione 
+	product_row_column(N, matrixA, matrixB, matrixC, args->i, args->j);
+
+	// libero memoria argomenti
+	free(args);
+
+	return NULL;
+}
+
+
+/**
+ * Thread worker per la somma
+ *
+ * @param thread_args argomenti da passare al thread
+ */
+static void *worker_thread_sum(void *thread_arg) 
 {
 	struct thread_args *args;
 
-	int (*sumult)[N] = matrixC;
 	int tmp;
 	
 	args = (struct thread_args *) thread_arg; 
-	switch (args->cmd)
-	{
-		case CMD_MUL:
-			sumult[args->i][args->j] = product_row_column(N, matrixA, matrixB, args->i, args->j);
-			break;
-		case CMD_SUM:
-			tmp = sum_row(N, matrixC, args->i);
+	
+	tmp = sum_row(N, matrixC, args->i);
 
-			if (pthread_mutex_lock(&mutex))
-				die("Errore lock mutex");
+	if (pthread_mutex_lock(&mutex))
+		die("Errore lock mutex");
 			
-			sum += tmp;
+	sum += tmp;
 
-			if (pthread_mutex_unlock(&mutex))
-				die("Errore unlock mutex");
-	}
+	if (pthread_mutex_unlock(&mutex))
+		die("Errore unlock mutex");
 
 	// libero memoria argomenti
 	free(args);
@@ -111,11 +137,10 @@ int main(int argc, char *argv[])
 		for (j = 0; j < N; j++)
 		{			
 			args = malloc(sizeof(struct thread_args));
-			args->cmd = CMD_MUL;
 			args->i = i;
 			args->j = j;
 		   	
-			if (pthread_create(&threads[k++], NULL, run_worker_thread, (void *) args))
+			if (pthread_create(&threads[k++], NULL, worker_thread_mul, (void *) args))
 				die("Errore pthread_create");
 		}
 	}
@@ -133,10 +158,9 @@ int main(int argc, char *argv[])
 	{
 		args = malloc(sizeof(struct thread_args));
 		
-		args->cmd = CMD_SUM;
 		args->i = i;
 
-		if (pthread_create(&threads[i], NULL, run_worker_thread, (void *) args))
+		if (pthread_create(&threads[i], NULL, worker_thread_sum, (void *) args))
 			die("Errore pthread_create");
 
 	}

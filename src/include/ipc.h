@@ -13,22 +13,31 @@
  * Struttura di un messaggio per IPC
  */
 struct message {
-	long type;
-	int i;
-	int j;
+
+	/** tipo del messaggio */
+	long type; 
+
+	/** indica la riga della matrice per messaggi di tipo MSG_MUL o MSG_SUM, o l'id del processo per messaggi di tipo MSG_OK */
+	int i; 
+
+	/** indica la colonna della matrice se messaggi di tipo MSG_MUL */
+	int j; 
 };
 
-#define MSG_OK 1
+/** indica un messaggio di OK inviato da figlio al padre quando il figlio ha completato l'operazione corrente */
+#define MSG_OK 1 
+
+/** indica un messaggio di comando di moltiplicazione per il figlio */
 #define MSG_MUL 2
+
+/** indica un messaggio di comando di somma per il figlio */
 #define MSG_SUM 3
 
-// shm
 int create_shm(size_t size);
 void delete_shm(int shmid);
 void* attach_shm(int shmid);
 void detach_shm(void *ptr);
 
-// sem
 int create_sem(void);
 void delete_sem(int semid);
 void sem_P(int semid);
