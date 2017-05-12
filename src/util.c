@@ -25,16 +25,18 @@ void cleanup(void)
 	int i;
 
 	// terminazione di tutti i processi figli
-	// termina i figli
-	for (i = 0; i < P; i++)
-	{
-		if (kill(workers[i].pid, SIGTERM) == -1)
-			err("Errore kill");
+	if (workers)
+	{	
+		for (i = 0; i < P; i++)
+		{
+			if (kill(workers[i].pid, SIGTERM) == -1)
+				err("Errore kill");
 
-		if (wait(NULL) == -1)
-			err("Errore wait(NULL)");
+			if (wait(NULL) == -1)
+				err("Errore wait(NULL)");
+		}
 	}
-
+	
 	// rimozione memoria condivisa
 	if (shmidA)
 		delete_shm(shmidA);
