@@ -1,34 +1,57 @@
 CC=gcc
 CFLAGS=-Wall -O2
+LDFLAGS=
 BINNAME=elaborato
 
-ifeq ($(IPC), thread)
+
+ifeq ($(THREAD),1)
 	OBJECTS=obj/main_thread.o obj/file.o obj/io.o obj/math.o
 	HEADERS=src/include/file.h src/include/io.h src/include/math.h
-	EXE=obj/elaborato_thread
+	LDFLAGS+=-lpthread
+	CFLAGS+=-DTHREAD
 else 
 	OBJECTS=obj/main.o obj/util.o obj/file.o obj/io.o obj/ipc.o obj/math.o obj/worker.o
 	HEADERS=src/include/util.h src/include/file.h src/include/io.h src/include/ipc.h src/include/math.h src/include/worker.h
-	EXE=obj/elaborato_ipc
-	IPC=ipc
 endif
 
-all: $(EXE)
-	@cp $(EXE) $(BINNAME)
-	@echo "Compilato progetto usando $(IPC)"
+.PHONY: all clean help rebuild doc test
+
+all: $(BINNAME)
 
 obj/%.o: src/%.c $(HEADERS)
+	@mkdir -p obj/
 	@echo "Compilazione $<"
 	@$(CC) -c -o $@ $< $(CFLAGS) 
 
-$(EXE): $(OBJECTS)	
+$(BINNAME): $(OBJECTS)	
 	@echo "Linking $(BINNAME)"
-	@$(CC) -o $@ $^
+	@$(CC) -o $@ $^ $(LDFLAGS)
 
 clean: 
 	@echo "Pulizia sorgenti"
-	@rm obj/*
+	@rm -rf obj/
+	@rm -rf $(BINNAME)
+
+rebuild: clean $(BINNAME)
+
+doc: 
+	@doxygen doc/Doxyfile
+
+test: clean $(BINNAME)
+ifeq ($(THREAD),1)
+	@./$(BINNAME) test/matA.csv test/matB.csv test/ris.csv 5
+else
+	@./$(BINNAME) test/matA.csv test/matB.csv test/ris.csv 5 10
+endif
 
 help:
-	@echo "usage: make -- compila progetto standard"
-	@echo "       make IPC=thread -- compila usando thread"
+	@echo "Usage:"
+	@echo "    make -- compila progetto standard"
+	@echo "    make THREAD=1 -- compila usando i thread"
+	@echo "    make clean -- pulisce i sorgenti"
+	@echo "    make rebuild -- ricompila il progetto"
+	@echo "    make doc -- genera la documentazione doxygen"
+	@echo "    make test -- esegue un test del programma"
+
+
+

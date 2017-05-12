@@ -1,0 +1,53 @@
+\hypertarget{worker_8c}{}\section{Riferimenti per il file src/worker.c}
+\label{worker_8c}\index{src/worker.\+c@{src/worker.\+c}}
+
+
+Contiene i metodi eseguiti dal thread worker.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/msg.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}include/worker.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}include/io.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}include/ipc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}include/math.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}include/util.\+h\char`\"{}}\newline
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{worker_8c_a5fc73ce2aca6a34dd935bb542ecb4d99}{run\+\_\+worker} (int pipe\+\_\+fd, int n)
+\begin{DoxyCompactList}\small\item\em Corpo principale del codice del thread worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrizione dettagliata}
+Contiene i metodi eseguiti dal thread worker. 
+
+\begin{DoxyAuthor}{Autore}
+Alessandro Righi 
+\end{DoxyAuthor}
+
+
+\subsection{Documentazione delle funzioni}
+\mbox{\Hypertarget{worker_8c_a5fc73ce2aca6a34dd935bb542ecb4d99}\label{worker_8c_a5fc73ce2aca6a34dd935bb542ecb4d99}} 
+\index{worker.\+c@{worker.\+c}!run\+\_\+worker@{run\+\_\+worker}}
+\index{run\+\_\+worker@{run\+\_\+worker}!worker.\+c@{worker.\+c}}
+\subsubsection{\texorpdfstring{run\+\_\+worker()}{run\_worker()}}
+{\footnotesize\ttfamily void run\+\_\+worker (\begin{DoxyParamCaption}\item[{int}]{pipe\+\_\+fd,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Corpo principale del codice del thread worker. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em pipe\+\_\+fd} & file descriptor della pipe \\
+\hline
+{\em n} & numero di sequenza del worker da cui leggere i comandi del padre \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 42 del file worker.\+c.
+

@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Elaborato Sistemi Operativi: Riferimenti per il file src/ipc.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Elaborato Sistemi Operativi
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generato da Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funzioni</a>  </div>
+  <div class="headertitle">
+<div class="title">Riferimenti per il file ipc.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contiene funzioni riguardanti le IPC.  
+<a href="#details">Continua...</a></p>
+<div class="textblock"><code>#include &lt;sys/ipc.h&gt;</code><br />
+<code>#include &lt;sys/shm.h&gt;</code><br />
+<code>#include &lt;sys/sem.h&gt;</code><br />
+<code>#include &lt;sys/msg.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="io_8h_source.html">include/io.h</a>&quot;</code><br />
+</div>
+<p><a href="ipc_8c_source.html">Vai al codice sorgente di questo file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funzioni</h2></td></tr>
+<tr class="memitem:a479c20aa177fa1c60a855bdb9d98e7b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a479c20aa177fa1c60a855bdb9d98e7b6">create_shm</a> (char *filename, int id, size_t size)</td></tr>
+<tr class="memdesc:a479c20aa177fa1c60a855bdb9d98e7b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un area di memoria condivisa il cui id viene generato a partire dal nome del file.  <a href="#a479c20aa177fa1c60a855bdb9d98e7b6">Continua...</a><br /></td></tr>
+<tr class="separator:a479c20aa177fa1c60a855bdb9d98e7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09eda768fa063fd854e17286dc6bd5e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a09eda768fa063fd854e17286dc6bd5e7">delete_shm</a> (int shmid)</td></tr>
+<tr class="memdesc:a09eda768fa063fd854e17286dc6bd5e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un area di memoria condivisa.  <a href="#a09eda768fa063fd854e17286dc6bd5e7">Continua...</a><br /></td></tr>
+<tr class="separator:a09eda768fa063fd854e17286dc6bd5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0de4edddd2bb63140566a065e04ff8d"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#ab0de4edddd2bb63140566a065e04ff8d">attach_shm</a> (int shmid)</td></tr>
+<tr class="memdesc:ab0de4edddd2bb63140566a065e04ff8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collega un segmento di area di memoria condivisa.  <a href="#ab0de4edddd2bb63140566a065e04ff8d">Continua...</a><br /></td></tr>
+<tr class="separator:ab0de4edddd2bb63140566a065e04ff8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eaf641046559bcb14f88e6f9e54dd41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a1eaf641046559bcb14f88e6f9e54dd41">detach_shm</a> (void *ptr)</td></tr>
+<tr class="memdesc:a1eaf641046559bcb14f88e6f9e54dd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distacca un segmento di memoria condivisa.  <a href="#a1eaf641046559bcb14f88e6f9e54dd41">Continua...</a><br /></td></tr>
+<tr class="separator:a1eaf641046559bcb14f88e6f9e54dd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae143a77ee1601fcc7a76ca3365615e33"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#ae143a77ee1601fcc7a76ca3365615e33">create_sem</a> (char *filename, int id)</td></tr>
+<tr class="memdesc:ae143a77ee1601fcc7a76ca3365615e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea il semaforo usato dall'applicazione.  <a href="#ae143a77ee1601fcc7a76ca3365615e33">Continua...</a><br /></td></tr>
+<tr class="separator:ae143a77ee1601fcc7a76ca3365615e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7d96eabbcfc88ef4c5363220cd23fe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#aa7d96eabbcfc88ef4c5363220cd23fe1">delete_sem</a> (int semid)</td></tr>
+<tr class="memdesc:aa7d96eabbcfc88ef4c5363220cd23fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un semaforo.  <a href="#aa7d96eabbcfc88ef4c5363220cd23fe1">Continua...</a><br /></td></tr>
+<tr class="separator:aa7d96eabbcfc88ef4c5363220cd23fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e8bf43fa9515874ed9c4957cb72bfec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#a1e8bf43fa9515874ed9c4957cb72bfec">sem_P</a> (int semid)</td></tr>
+<tr class="memdesc:a1e8bf43fa9515874ed9c4957cb72bfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esegue l'operazione P (wait) sul semaforo indicato.  <a href="#a1e8bf43fa9515874ed9c4957cb72bfec">Continua...</a><br /></td></tr>
+<tr class="separator:a1e8bf43fa9515874ed9c4957cb72bfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accfd1f9fc643a393c4c2544e2eed1f26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#accfd1f9fc643a393c4c2544e2eed1f26">sem_V</a> (int semid)</td></tr>
+<tr class="memdesc:accfd1f9fc643a393c4c2544e2eed1f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esegue l'operazione V (signal) sul semaforo indicato.  <a href="#accfd1f9fc643a393c4c2544e2eed1f26">Continua...</a><br /></td></tr>
+<tr class="separator:accfd1f9fc643a393c4c2544e2eed1f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac99f1710f9340dc83cabf60922566f45"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#ac99f1710f9340dc83cabf60922566f45">create_msg</a> (char *filename, int id)</td></tr>
+<tr class="memdesc:ac99f1710f9340dc83cabf60922566f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea una coda di messaggi.  <a href="#ac99f1710f9340dc83cabf60922566f45">Continua...</a><br /></td></tr>
+<tr class="separator:ac99f1710f9340dc83cabf60922566f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea74dafc7a156a96b3a32961e55c758f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipc_8c.html#aea74dafc7a156a96b3a32961e55c758f">delete_msg</a> (int msgid)</td></tr>
+<tr class="memdesc:aea74dafc7a156a96b3a32961e55c758f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina una coda di messaggi.  <a href="#aea74dafc7a156a96b3a32961e55c758f">Continua...</a><br /></td></tr>
+<tr class="separator:aea74dafc7a156a96b3a32961e55c758f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrizione dettagliata</h2>
+<div class="textblock"><p>Contiene funzioni riguardanti le IPC. </p>
+<dl class="section author"><dt>Autore</dt><dd>Alessandro Righi </dd></dl>
+
+<p class="definition">Definizione nel file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+</div><h2 class="groupheader">Documentazione delle funzioni</h2>
+<a id="ab0de4edddd2bb63140566a065e04ff8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0de4edddd2bb63140566a065e04ff8d">&#9670;&nbsp;</a></span>attach_shm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* attach_shm </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>shmid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Collega un segmento di area di memoria condivisa. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shmid</td><td>id dell'area di memoria condivisa </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00060">60</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="ac99f1710f9340dc83cabf60922566f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac99f1710f9340dc83cabf60922566f45">&#9670;&nbsp;</a></span>create_msg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int create_msg </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crea una coda di messaggi. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>filename da passare ad ftok() </td></tr>
+    <tr><td class="paramname">id</td><td>id da passare ad ftok(); </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>msgid della coda creata </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00156">156</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="ae143a77ee1601fcc7a76ca3365615e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae143a77ee1601fcc7a76ca3365615e33">&#9670;&nbsp;</a></span>create_sem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int create_sem </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crea il semaforo usato dall'applicazione. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>file da passare a ftok() </td></tr>
+    <tr><td class="paramname">id</td><td>id da passare ad ftok() </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>semid creato </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00088">88</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="a479c20aa177fa1c60a855bdb9d98e7b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a479c20aa177fa1c60a855bdb9d98e7b6">&#9670;&nbsp;</a></span>create_shm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int create_shm </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crea un area di memoria condivisa il cui id viene generato a partire dal nome del file. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>nome del file da passare a ftok() </td></tr>
+    <tr><td class="paramname">id</td><td>id da passare ad ftok() </td></tr>
+    <tr><td class="paramname">size</td><td>dimensione dell'area di memoria condivisa </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>id memoria condivisa </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00026">26</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="aea74dafc7a156a96b3a32961e55c758f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea74dafc7a156a96b3a32961e55c758f">&#9670;&nbsp;</a></span>delete_msg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delete_msg </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>msgid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Elimina una coda di messaggi. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msgid</td><td>id della cosa di messaggi da eliminare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00176">176</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="aa7d96eabbcfc88ef4c5363220cd23fe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7d96eabbcfc88ef4c5363220cd23fe1">&#9670;&nbsp;</a></span>delete_sem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delete_sem </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>semid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Elimina un semaforo. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">semid</td><td>id del semaforo da eliminare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00115">115</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="a09eda768fa063fd854e17286dc6bd5e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09eda768fa063fd854e17286dc6bd5e7">&#9670;&nbsp;</a></span>delete_shm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delete_shm </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>shmid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Elimina un area di memoria condivisa. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shmid</td><td>id dell'area di memoria da eliminare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00047">47</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="a1eaf641046559bcb14f88e6f9e54dd41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eaf641046559bcb14f88e6f9e54dd41">&#9670;&nbsp;</a></span>detach_shm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detach_shm </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Distacca un segmento di memoria condivisa. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>puntatore al segmento dell'area da distaccare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00075">75</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="a1e8bf43fa9515874ed9c4957cb72bfec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e8bf43fa9515874ed9c4957cb72bfec">&#9670;&nbsp;</a></span>sem_P()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sem_P </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>semid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esegue l'operazione P (wait) sul semaforo indicato. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">semid</td><td>id del semaforo su cui fare la P </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00128">128</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+<a id="accfd1f9fc643a393c4c2544e2eed1f26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accfd1f9fc643a393c4c2544e2eed1f26">&#9670;&nbsp;</a></span>sem_V()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sem_V </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>semid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esegue l'operazione V (signal) sul semaforo indicato. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">semid</td><td>id del semaforo su cui fare la V </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="ipc_8c_source.html#l00141">141</a> del file <a class="el" href="ipc_8c_source.html">ipc.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

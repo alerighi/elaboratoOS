@@ -1,0 +1,106 @@
+\hypertarget{file_8c}{}\section{Riferimenti per il file src/file.c}
+\label{file_8c}\index{src/file.\+c@{src/file.\+c}}
+
+
+Contiene funzioni per la lettura/scrittura su file.  
+
+
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}include/file.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}include/io.\+h\char`\"{}}\newline
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{file_8c_a48eef41e70418400b9ece4cd07cd44a2}{load\+\_\+matrix} (const char $\ast$filename, int n, int matrix\mbox{[}n\mbox{]}\mbox{[}n\mbox{]})
+\begin{DoxyCompactList}\small\item\em Legge una matrice da un file csv. \end{DoxyCompactList}\item 
+void \hyperlink{file_8c_ad81e1e8229bbad4acad1e9cbaa29f22c}{save\+\_\+matrix} (const char $\ast$filename, int n, int matrix\mbox{[}n\mbox{]}\mbox{[}n\mbox{]})
+\begin{DoxyCompactList}\small\item\em Scrive una matrice su un file csv. \end{DoxyCompactList}\item 
+void \hyperlink{file_8c_a8f3fbff8c86901b01259a39ee48f8e38}{check\+\_\+output\+\_\+file} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Funzione per controllare la validità del file di output\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrizione dettagliata}
+Contiene funzioni per la lettura/scrittura su file. 
+
+\begin{DoxyAuthor}{Autore}
+Alessandro Righi 
+\end{DoxyAuthor}
+
+
+\subsection{Documentazione delle funzioni}
+\mbox{\Hypertarget{file_8c_a8f3fbff8c86901b01259a39ee48f8e38}\label{file_8c_a8f3fbff8c86901b01259a39ee48f8e38}} 
+\index{file.\+c@{file.\+c}!check\+\_\+output\+\_\+file@{check\+\_\+output\+\_\+file}}
+\index{check\+\_\+output\+\_\+file@{check\+\_\+output\+\_\+file}!file.\+c@{file.\+c}}
+\subsubsection{\texorpdfstring{check\+\_\+output\+\_\+file()}{check\_output\_file()}}
+{\footnotesize\ttfamily void check\+\_\+output\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Funzione per controllare la validità del file di output\+: 
+
+
+\begin{DoxyItemize}
+\item se il file non esiste, lo crea
+\item se il file esiste, controlla che sia scrivibile
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parametri}
+{\em filename} & nome del file \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 117 del file file.\+c.
+
+\mbox{\Hypertarget{file_8c_a48eef41e70418400b9ece4cd07cd44a2}\label{file_8c_a48eef41e70418400b9ece4cd07cd44a2}} 
+\index{file.\+c@{file.\+c}!load\+\_\+matrix@{load\+\_\+matrix}}
+\index{load\+\_\+matrix@{load\+\_\+matrix}!file.\+c@{file.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+matrix()}{load\_matrix()}}
+{\footnotesize\ttfamily void load\+\_\+matrix (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{int}]{n,  }\item[{int}]{matrix\mbox{[}n\mbox{]}\mbox{[}n\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Legge una matrice da un file csv. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em filename} & nome del file da cui legger \\
+\hline
+{\em matrix} & matrice in cui leggere \\
+\hline
+{\em n} & ordine della matrice \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 41 del file file.\+c.
+
+\mbox{\Hypertarget{file_8c_ad81e1e8229bbad4acad1e9cbaa29f22c}\label{file_8c_ad81e1e8229bbad4acad1e9cbaa29f22c}} 
+\index{file.\+c@{file.\+c}!save\+\_\+matrix@{save\+\_\+matrix}}
+\index{save\+\_\+matrix@{save\+\_\+matrix}!file.\+c@{file.\+c}}
+\subsubsection{\texorpdfstring{save\+\_\+matrix()}{save\_matrix()}}
+{\footnotesize\ttfamily void save\+\_\+matrix (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{int}]{n,  }\item[{int}]{matrix\mbox{[}n\mbox{]}\mbox{[}n\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Scrive una matrice su un file csv. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em filename} & file su cui scrivere la matrice \\
+\hline
+{\em matrix} & matrice da scrivere \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+n ordine della matrice 
+\end{DoxyReturn}
+
+
+Definizione alla linea 83 del file file.\+c.
+

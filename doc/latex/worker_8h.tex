@@ -1,0 +1,45 @@
+\hypertarget{worker_8h}{}\section{Riferimenti per il file src/include/worker.h}
+\label{worker_8h}\index{src/include/worker.\+h@{src/include/worker.\+h}}
+
+
+Contiene le definizioni del per \hyperlink{worker_8c}{worker.\+c}.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{worker_8h_a5fc73ce2aca6a34dd935bb542ecb4d99}{run\+\_\+worker} (int pipe\+\_\+fd, int n)
+\begin{DoxyCompactList}\small\item\em Corpo principale del codice del thread worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrizione dettagliata}
+Contiene le definizioni del per \hyperlink{worker_8c}{worker.\+c}. 
+
+\begin{DoxyAuthor}{Autore}
+Alessandro Righi 
+\end{DoxyAuthor}
+
+
+\subsection{Documentazione delle funzioni}
+\mbox{\Hypertarget{worker_8h_a5fc73ce2aca6a34dd935bb542ecb4d99}\label{worker_8h_a5fc73ce2aca6a34dd935bb542ecb4d99}} 
+\index{worker.\+h@{worker.\+h}!run\+\_\+worker@{run\+\_\+worker}}
+\index{run\+\_\+worker@{run\+\_\+worker}!worker.\+h@{worker.\+h}}
+\subsubsection{\texorpdfstring{run\+\_\+worker()}{run\_worker()}}
+{\footnotesize\ttfamily void run\+\_\+worker (\begin{DoxyParamCaption}\item[{int}]{pipe\+\_\+fd,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Corpo principale del codice del thread worker. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em pipe\+\_\+fd} & file descriptor della pipe \\
+\hline
+{\em n} & numero di sequenza del worker da cui leggere i comandi del padre \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 42 del file worker.\+c.
+

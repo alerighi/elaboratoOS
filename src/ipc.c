@@ -6,6 +6,13 @@
 #include <stdlib.h>
 
 #include "include/io.h"
+#include "include/ipc.h"
+
+/**
+ * @file ipc.c
+ * @brief Contiene funzioni riguardanti le IPC
+ * @author Alessandro Righi
+ */
 
 /**
  * Crea un area di memoria condivisa il cui id viene 
@@ -82,7 +89,9 @@ int create_sem(char *filename, int id)
 {
 	key_t key;
 	int semid;
-	union semun arg;
+	union semun {
+        int val;
+    } arg = {.val = 1};
 
 	if ((key = ftok(filename, id)) == -1)
 		die("Errore creazione key sem con ftok()");
@@ -90,7 +99,6 @@ int create_sem(char *filename, int id)
 	if ((semid = semget(key, 1, IPC_CREAT|0666)) == -1)
 		die("Errore creazione semafori semget()");
 	
-	arg.val = 1;
 	if (semctl(semid, 0, SETVAL, arg) == -1)
 		die("Errore semctl()");
 
@@ -169,4 +177,29 @@ void delete_msg(int msgid)
 {
 	if (msgctl(msgid, IPC_RMID, NULL) == -1)
 		die("Errore rimozione coda di messaggi msgid = %d", msgid);
+}
+
+/**
+ * Riceve un messaggio da una coda di messaggi
+ * 
+ * @param msgid id della coda di messaggi
+ * @param type tipo del messaggio da ricevere
+ * @param message memoria dove salvare il messaggio 
+ */
+void msg_rcv(int msgid, int type, struct message *message)
+{
+	if (msgrcv(msgid, message, sizeof(struct message) - sizeof(long), MSG_OK, 0) == -1)
+		die("Errore msgrcv");
+}
+
+/**
+ * Invia un messaggio ad una coda di messaggi
+ *
+ * @param msgid id della coda di messaggi
+ * @param message messaggio da inviare
+ */
+void msg_snd(int msgid, struct message *message)
+{
+	if (msgsnd(msgid, message, sizeof(struct message) - sizeof(long), 0) == -1)
+		die("Errore di invio messaggio notifica al padre!");
 }

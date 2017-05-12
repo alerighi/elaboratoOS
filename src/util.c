@@ -4,11 +4,18 @@
 #include <string.h>
 #include <sys/msg.h>
 #include <signal.h> 
+#include <sys/wait.h>
 
 #include "include/ipc.h"
 #include "include/util.h"
 #include "include/worker.h"
 #include "include/io.h"
+
+/**
+ * @file util.c
+ * @brief Contiene funzioni di utilità
+ * @author Alessandro Righi
+ */
 
 /**
  * Pulisce tutte le risorse inizializzate dal programma
@@ -22,10 +29,10 @@ void cleanup(void)
 	for (i = 0; i < P; i++)
 	{
 		if (kill(workers[i].pid, SIGTERM) == -1)
-			die("Errore kill");
+			err("Errore kill");
 
 		if (wait(NULL) == -1)
-			die("Errore wait(NULL)");
+			err("Errore wait(NULL)");
 	}
 
 	// rimozione memoria condivisa
@@ -94,10 +101,9 @@ void create_worker(int n)
 int wait_process()
 {
 	struct message message;
-	
-	if (msgrcv(msgid, &message, sizeof(struct message) - sizeof(long), MSG_OK, 0) == -1)
-		die("Errore msgrcv");
-	
+
+	msg_rcv(msgid, MSG_OK, &message);
+		
 	return message.i;
 }
 

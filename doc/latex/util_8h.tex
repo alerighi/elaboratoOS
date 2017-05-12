@@ -1,0 +1,147 @@
+\hypertarget{util_8h}{}\section{Riferimenti per il file src/include/util.h}
+\label{util_8h}\index{src/include/util.\+h@{src/include/util.\+h}}
+
+
+Contiene le definizioni per \hyperlink{worker_8h}{worker.\+h}.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\subsection*{Strutture dati}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structworker}{worker}
+\begin{DoxyCompactList}\small\item\em struttura di un processo worker \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{util_8h_aeb94fbd457627182ceee7e505f432541}\label{util_8h_aeb94fbd457627182ceee7e505f432541}} 
+void \hyperlink{util_8h_aeb94fbd457627182ceee7e505f432541}{cleanup} (void)
+\begin{DoxyCompactList}\small\item\em Pulisce tutte le risorse inizializzate dal programma. \end{DoxyCompactList}\item 
+void \hyperlink{util_8h_ac476df88f97624c44d530339d9505b46}{create\+\_\+worker} (int n)
+\begin{DoxyCompactList}\small\item\em Crea un processo worker ed una pipe per inviargli comandi. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_a7c5f1f77d4d97890a52a592dbed90478}\label{util_8h_a7c5f1f77d4d97890a52a592dbed90478}} 
+void {\bfseries handle\+\_\+sigusr1} (int signal)
+\item 
+int \hyperlink{util_8h_a943d008616a934746719de570ca1490b}{wait\+\_\+process} (void)
+\begin{DoxyCompactList}\small\item\em Attende il messaggio di terminazione di un worker, arrivato il messaggio ne ritorna il suo id. \end{DoxyCompactList}\item 
+void \hyperlink{util_8h_aa58d1802ebc5176c543578a2224fa2f7}{sigint\+\_\+handler} (int signal)
+\begin{DoxyCompactList}\small\item\em Handler del segnale S\+I\+G\+I\+NT (C\+T\+R\+L-\/C) \end{DoxyCompactList}\item 
+void \hyperlink{util_8h_a1a95126aa995482d4ea6ffd56be40e1d}{sigterm\+\_\+handler} (int signal)
+\begin{DoxyCompactList}\small\item\em Handler del segnale S\+I\+G\+T\+E\+RM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variabili}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{util_8h_a2de52734588dbea759c5cf109feb0456}\label{util_8h_a2de52734588dbea759c5cf109feb0456}} 
+int {\bfseries shmidA}
+\item 
+\mbox{\Hypertarget{util_8h_accbc1a178640a2b2db39aff4b3505e67}\label{util_8h_accbc1a178640a2b2db39aff4b3505e67}} 
+int {\bfseries shmidB}
+\item 
+\mbox{\Hypertarget{util_8h_a8255c98077b56e64a0c4b79eef74b285}\label{util_8h_a8255c98077b56e64a0c4b79eef74b285}} 
+int {\bfseries shmidC}
+\item 
+\mbox{\Hypertarget{util_8h_a4a6bcb51afb5cb7eb1ca9de989b9f82c}\label{util_8h_a4a6bcb51afb5cb7eb1ca9de989b9f82c}} 
+int {\bfseries shmidS}
+\item 
+\mbox{\Hypertarget{util_8h_a7c35ac5305085cf7360645b8d52988b5}\label{util_8h_a7c35ac5305085cf7360645b8d52988b5}} 
+int {\bfseries semid}
+\item 
+\mbox{\Hypertarget{util_8h_a6174c42da8c55c86e7255be2848dc4ac}\label{util_8h_a6174c42da8c55c86e7255be2848dc4ac}} 
+int {\bfseries msgid}
+\item 
+\mbox{\Hypertarget{util_8h_a7722c8ecbb62d99aee7ce68b1752f337}\label{util_8h_a7722c8ecbb62d99aee7ce68b1752f337}} 
+int {\bfseries N}
+\item 
+\mbox{\Hypertarget{util_8h_aef94be98e2c9e4a4dece75f60ca9792c}\label{util_8h_aef94be98e2c9e4a4dece75f60ca9792c}} 
+int {\bfseries P}
+\item 
+\mbox{\Hypertarget{util_8h_aa31e06e56dc14137a6dc5e450fb2b225}\label{util_8h_aa31e06e56dc14137a6dc5e450fb2b225}} 
+struct \hyperlink{structworker}{worker} $\ast$ {\bfseries workers}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrizione dettagliata}
+Contiene le definizioni per \hyperlink{worker_8h}{worker.\+h}. 
+
+\begin{DoxyAuthor}{Autore}
+Alessandro Righi 
+\end{DoxyAuthor}
+
+
+\subsection{Documentazione delle funzioni}
+\mbox{\Hypertarget{util_8h_ac476df88f97624c44d530339d9505b46}\label{util_8h_ac476df88f97624c44d530339d9505b46}} 
+\index{util.\+h@{util.\+h}!create\+\_\+worker@{create\+\_\+worker}}
+\index{create\+\_\+worker@{create\+\_\+worker}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{create\+\_\+worker()}{create\_worker()}}
+{\footnotesize\ttfamily void create\+\_\+worker (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Crea un processo worker ed una pipe per inviargli comandi. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em worker} & puntatore alla struttura descrittore del worker \\
+\hline
+{\em n} & numero di sequenza del worker \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 65 del file util.\+c.
+
+\mbox{\Hypertarget{util_8h_aa58d1802ebc5176c543578a2224fa2f7}\label{util_8h_aa58d1802ebc5176c543578a2224fa2f7}} 
+\index{util.\+h@{util.\+h}!sigint\+\_\+handler@{sigint\+\_\+handler}}
+\index{sigint\+\_\+handler@{sigint\+\_\+handler}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{sigint\+\_\+handler()}{sigint\_handler()}}
+{\footnotesize\ttfamily void sigint\+\_\+handler (\begin{DoxyParamCaption}\item[{int}]{signal }\end{DoxyParamCaption})}
+
+
+
+Handler del segnale S\+I\+G\+I\+NT (C\+T\+R\+L-\/C) 
+
+
+\begin{DoxyParams}{Parametri}
+{\em signal} & numero del segnale \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 116 del file util.\+c.
+
+\mbox{\Hypertarget{util_8h_a1a95126aa995482d4ea6ffd56be40e1d}\label{util_8h_a1a95126aa995482d4ea6ffd56be40e1d}} 
+\index{util.\+h@{util.\+h}!sigterm\+\_\+handler@{sigterm\+\_\+handler}}
+\index{sigterm\+\_\+handler@{sigterm\+\_\+handler}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{sigterm\+\_\+handler()}{sigterm\_handler()}}
+{\footnotesize\ttfamily void sigterm\+\_\+handler (\begin{DoxyParamCaption}\item[{int}]{signal }\end{DoxyParamCaption})}
+
+
+
+Handler del segnale S\+I\+G\+T\+E\+RM. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em signal} & numero del segnale \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 128 del file util.\+c.
+
+\mbox{\Hypertarget{util_8h_a943d008616a934746719de570ca1490b}\label{util_8h_a943d008616a934746719de570ca1490b}} 
+\index{util.\+h@{util.\+h}!wait\+\_\+process@{wait\+\_\+process}}
+\index{wait\+\_\+process@{wait\+\_\+process}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{wait\+\_\+process()}{wait\_process()}}
+{\footnotesize\ttfamily int wait\+\_\+process (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Attende il messaggio di terminazione di un worker, arrivato il messaggio ne ritorna il suo id. 
+
+\begin{DoxyReturn}{Restituisce}
+id del worker che ha finito 
+\end{DoxyReturn}
+
+
+Definizione alla linea 101 del file util.\+c.
+

@@ -1,6 +1,12 @@
 #include "include/math.h"
 
 /**
+ * @file math.c
+ * @brief Contiene le funzioni che eseguono le operazioni matematiche su matrice
+ * @author Alessandro Righi
+ */
+
+/**
  * Esegue il prodotto della riga i della matrice A con 
  * la colonna j della matrice B e ritorna il risultato
  *

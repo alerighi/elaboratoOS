@@ -3,6 +3,12 @@
 
 #include <stdlib.h>
 
+/**
+ * @file util.h
+ * @brief Contiene le definizioni per worker.h
+ * @author Alessandro Righi
+ */
+
 // variabili risorse condivise
 extern int shmidA;
 extern int shmidB;
@@ -19,8 +25,8 @@ extern int P;
  * struttura di un processo worker
  */
 struct worker {
-    pid_t pid;
-    int pipe_fd;
+	pid_t pid;
+	int pipe_fd;
 };
 
 // struttura esterna dei worker

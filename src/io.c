@@ -5,9 +5,19 @@
 #include <stdio.h>
 #include <errno.h>
 
-#include "include/util.h"
+#ifndef THREAD
+	#include "include/util.h"
+#endif
+
 #include "include/file.h"
 #include "include/io.h"
+
+/**
+ * @file io.c
+ * @brief Contiene funzioni di input/output
+ * @author Alessandro Righi
+ */
+
 
 /**
  * Stampa su standard error un messaggio di errore. Da usare con le apposite 
@@ -38,8 +48,10 @@ void msg_error(int status, const char *file, int line, const char *message, ...)
 	
 	if (status)
 	{
-		exit(status);
+#ifndef THREAD
 		cleanup();
+#endif
+		exit(status);
 	}
 }
 
@@ -103,4 +115,24 @@ void print_matrix(int n, int matrix[n][n])
 		
 		print("\n");
 	}
+}
+
+/**
+ * Stampa un messaggo di help relativo all'utilizzo del programma
+ * e termina con stato d'uscita 1
+ */
+void usage()
+{
+	const char *message = 
+		"Usage: program <MatA> <MatB> <MatC> <N> <P>\n"
+		"    - MatA    file prima matrice da moltiplicare\n"
+		"    - MatB    file seconda matrice da moltiplicare\n"
+		"    - MatC    file dove salvare la matrice risultante\n"
+		"    - N       ordine della matrice\n"
+#ifndef THREAD
+		"    - P       numero di processi worker da creare\n"
+#endif
+		;
+	print(message);
+	exit(0);
 }

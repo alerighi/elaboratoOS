@@ -1,0 +1,255 @@
+\hypertarget{ipc_8c}{}\section{Riferimenti per il file src/ipc.c}
+\label{ipc_8c}\index{src/ipc.\+c@{src/ipc.\+c}}
+
+
+Contiene funzioni riguardanti le I\+PC.  
+
+
+{\ttfamily \#include $<$sys/ipc.\+h$>$}\newline
+{\ttfamily \#include $<$sys/shm.\+h$>$}\newline
+{\ttfamily \#include $<$sys/sem.\+h$>$}\newline
+{\ttfamily \#include $<$sys/msg.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}include/io.\+h\char`\"{}}\newline
+\subsection*{Funzioni}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ipc_8c_a479c20aa177fa1c60a855bdb9d98e7b6}{create\+\_\+shm} (char $\ast$filename, int id, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Crea un area di memoria condivisa il cui id viene generato a partire dal nome del file. \end{DoxyCompactList}\item 
+void \hyperlink{ipc_8c_a09eda768fa063fd854e17286dc6bd5e7}{delete\+\_\+shm} (int shmid)
+\begin{DoxyCompactList}\small\item\em Elimina un area di memoria condivisa. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{ipc_8c_ab0de4edddd2bb63140566a065e04ff8d}{attach\+\_\+shm} (int shmid)
+\begin{DoxyCompactList}\small\item\em Collega un segmento di area di memoria condivisa. \end{DoxyCompactList}\item 
+void \hyperlink{ipc_8c_a1eaf641046559bcb14f88e6f9e54dd41}{detach\+\_\+shm} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Distacca un segmento di memoria condivisa. \end{DoxyCompactList}\item 
+int \hyperlink{ipc_8c_ae143a77ee1601fcc7a76ca3365615e33}{create\+\_\+sem} (char $\ast$filename, int id)
+\begin{DoxyCompactList}\small\item\em Crea il semaforo usato dall\textquotesingle{}applicazione. \end{DoxyCompactList}\item 
+void \hyperlink{ipc_8c_aa7d96eabbcfc88ef4c5363220cd23fe1}{delete\+\_\+sem} (int semid)
+\begin{DoxyCompactList}\small\item\em Elimina un semaforo. \end{DoxyCompactList}\item 
+void \hyperlink{ipc_8c_a1e8bf43fa9515874ed9c4957cb72bfec}{sem\+\_\+P} (int semid)
+\begin{DoxyCompactList}\small\item\em Esegue l\textquotesingle{}operazione P (wait) sul semaforo indicato. \end{DoxyCompactList}\item 
+void \hyperlink{ipc_8c_accfd1f9fc643a393c4c2544e2eed1f26}{sem\+\_\+V} (int semid)
+\begin{DoxyCompactList}\small\item\em Esegue l\textquotesingle{}operazione V (signal) sul semaforo indicato. \end{DoxyCompactList}\item 
+int \hyperlink{ipc_8c_ac99f1710f9340dc83cabf60922566f45}{create\+\_\+msg} (char $\ast$filename, int id)
+\begin{DoxyCompactList}\small\item\em Crea una coda di messaggi. \end{DoxyCompactList}\item 
+void \hyperlink{ipc_8c_aea74dafc7a156a96b3a32961e55c758f}{delete\+\_\+msg} (int msgid)
+\begin{DoxyCompactList}\small\item\em Elimina una coda di messaggi. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrizione dettagliata}
+Contiene funzioni riguardanti le I\+PC. 
+
+\begin{DoxyAuthor}{Autore}
+Alessandro Righi 
+\end{DoxyAuthor}
+
+
+\subsection{Documentazione delle funzioni}
+\mbox{\Hypertarget{ipc_8c_ab0de4edddd2bb63140566a065e04ff8d}\label{ipc_8c_ab0de4edddd2bb63140566a065e04ff8d}} 
+\index{ipc.\+c@{ipc.\+c}!attach\+\_\+shm@{attach\+\_\+shm}}
+\index{attach\+\_\+shm@{attach\+\_\+shm}!ipc.\+c@{ipc.\+c}}
+\subsubsection{\texorpdfstring{attach\+\_\+shm()}{attach\_shm()}}
+{\footnotesize\ttfamily void$\ast$ attach\+\_\+shm (\begin{DoxyParamCaption}\item[{int}]{shmid }\end{DoxyParamCaption})}
+
+
+
+Collega un segmento di area di memoria condivisa. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em shmid} & id dell\textquotesingle{}area di memoria condivisa \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 60 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8c_ac99f1710f9340dc83cabf60922566f45}\label{ipc_8c_ac99f1710f9340dc83cabf60922566f45}} 
+\index{ipc.\+c@{ipc.\+c}!create\+\_\+msg@{create\+\_\+msg}}
+\index{create\+\_\+msg@{create\+\_\+msg}!ipc.\+c@{ipc.\+c}}
+\subsubsection{\texorpdfstring{create\+\_\+msg()}{create\_msg()}}
+{\footnotesize\ttfamily int create\+\_\+msg (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Crea una coda di messaggi. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em filename} & filename da passare ad ftok() \\
+\hline
+{\em id} & id da passare ad ftok(); \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+msgid della coda creata 
+\end{DoxyReturn}
+
+
+Definizione alla linea 156 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8c_ae143a77ee1601fcc7a76ca3365615e33}\label{ipc_8c_ae143a77ee1601fcc7a76ca3365615e33}} 
+\index{ipc.\+c@{ipc.\+c}!create\+\_\+sem@{create\+\_\+sem}}
+\index{create\+\_\+sem@{create\+\_\+sem}!ipc.\+c@{ipc.\+c}}
+\subsubsection{\texorpdfstring{create\+\_\+sem()}{create\_sem()}}
+{\footnotesize\ttfamily int create\+\_\+sem (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Crea il semaforo usato dall\textquotesingle{}applicazione. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em filename} & file da passare a ftok() \\
+\hline
+{\em id} & id da passare ad ftok() \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+semid creato 
+\end{DoxyReturn}
+
+
+Definizione alla linea 88 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8c_a479c20aa177fa1c60a855bdb9d98e7b6}\label{ipc_8c_a479c20aa177fa1c60a855bdb9d98e7b6}} 
+\index{ipc.\+c@{ipc.\+c}!create\+\_\+shm@{create\+\_\+shm}}
+\index{create\+\_\+shm@{create\+\_\+shm}!ipc.\+c@{ipc.\+c}}
+\subsubsection{\texorpdfstring{create\+\_\+shm()}{create\_shm()}}
+{\footnotesize\ttfamily int create\+\_\+shm (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{int}]{id,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Crea un area di memoria condivisa il cui id viene generato a partire dal nome del file. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em filename} & nome del file da passare a ftok() \\
+\hline
+{\em id} & id da passare ad ftok() \\
+\hline
+{\em size} & dimensione dell\textquotesingle{}area di memoria condivisa \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Restituisce}
+id memoria condivisa 
+\end{DoxyReturn}
+
+
+Definizione alla linea 26 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8c_aea74dafc7a156a96b3a32961e55c758f}\label{ipc_8c_aea74dafc7a156a96b3a32961e55c758f}} 
+\index{ipc.\+c@{ipc.\+c}!delete\+\_\+msg@{delete\+\_\+msg}}
+\index{delete\+\_\+msg@{delete\+\_\+msg}!ipc.\+c@{ipc.\+c}}
+\subsubsection{\texorpdfstring{delete\+\_\+msg()}{delete\_msg()}}
+{\footnotesize\ttfamily void delete\+\_\+msg (\begin{DoxyParamCaption}\item[{int}]{msgid }\end{DoxyParamCaption})}
+
+
+
+Elimina una coda di messaggi. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em msgid} & id della cosa di messaggi da eliminare \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 176 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8c_aa7d96eabbcfc88ef4c5363220cd23fe1}\label{ipc_8c_aa7d96eabbcfc88ef4c5363220cd23fe1}} 
+\index{ipc.\+c@{ipc.\+c}!delete\+\_\+sem@{delete\+\_\+sem}}
+\index{delete\+\_\+sem@{delete\+\_\+sem}!ipc.\+c@{ipc.\+c}}
+\subsubsection{\texorpdfstring{delete\+\_\+sem()}{delete\_sem()}}
+{\footnotesize\ttfamily void delete\+\_\+sem (\begin{DoxyParamCaption}\item[{int}]{semid }\end{DoxyParamCaption})}
+
+
+
+Elimina un semaforo. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em semid} & id del semaforo da eliminare \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 115 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8c_a09eda768fa063fd854e17286dc6bd5e7}\label{ipc_8c_a09eda768fa063fd854e17286dc6bd5e7}} 
+\index{ipc.\+c@{ipc.\+c}!delete\+\_\+shm@{delete\+\_\+shm}}
+\index{delete\+\_\+shm@{delete\+\_\+shm}!ipc.\+c@{ipc.\+c}}
+\subsubsection{\texorpdfstring{delete\+\_\+shm()}{delete\_shm()}}
+{\footnotesize\ttfamily void delete\+\_\+shm (\begin{DoxyParamCaption}\item[{int}]{shmid }\end{DoxyParamCaption})}
+
+
+
+Elimina un area di memoria condivisa. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em shmid} & id dell\textquotesingle{}area di memoria da eliminare \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 47 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8c_a1eaf641046559bcb14f88e6f9e54dd41}\label{ipc_8c_a1eaf641046559bcb14f88e6f9e54dd41}} 
+\index{ipc.\+c@{ipc.\+c}!detach\+\_\+shm@{detach\+\_\+shm}}
+\index{detach\+\_\+shm@{detach\+\_\+shm}!ipc.\+c@{ipc.\+c}}
+\subsubsection{\texorpdfstring{detach\+\_\+shm()}{detach\_shm()}}
+{\footnotesize\ttfamily void detach\+\_\+shm (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Distacca un segmento di memoria condivisa. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em ptr} & puntatore al segmento dell\textquotesingle{}area da distaccare \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 75 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8c_a1e8bf43fa9515874ed9c4957cb72bfec}\label{ipc_8c_a1e8bf43fa9515874ed9c4957cb72bfec}} 
+\index{ipc.\+c@{ipc.\+c}!sem\+\_\+P@{sem\+\_\+P}}
+\index{sem\+\_\+P@{sem\+\_\+P}!ipc.\+c@{ipc.\+c}}
+\subsubsection{\texorpdfstring{sem\+\_\+\+P()}{sem\_P()}}
+{\footnotesize\ttfamily void sem\+\_\+P (\begin{DoxyParamCaption}\item[{int}]{semid }\end{DoxyParamCaption})}
+
+
+
+Esegue l\textquotesingle{}operazione P (wait) sul semaforo indicato. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em semid} & id del semaforo su cui fare la P \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 128 del file ipc.\+c.
+
+\mbox{\Hypertarget{ipc_8c_accfd1f9fc643a393c4c2544e2eed1f26}\label{ipc_8c_accfd1f9fc643a393c4c2544e2eed1f26}} 
+\index{ipc.\+c@{ipc.\+c}!sem\+\_\+V@{sem\+\_\+V}}
+\index{sem\+\_\+V@{sem\+\_\+V}!ipc.\+c@{ipc.\+c}}
+\subsubsection{\texorpdfstring{sem\+\_\+\+V()}{sem\_V()}}
+{\footnotesize\ttfamily void sem\+\_\+V (\begin{DoxyParamCaption}\item[{int}]{semid }\end{DoxyParamCaption})}
+
+
+
+Esegue l\textquotesingle{}operazione V (signal) sul semaforo indicato. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em semid} & id del semaforo su cui fare la V \\
+\hline
+\end{DoxyParams}
+
+
+Definizione alla linea 141 del file ipc.\+c.
+

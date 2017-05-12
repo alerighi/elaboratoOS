@@ -1,10 +1,17 @@
 #ifndef _IO_H
 #define _IO_H
 
+/**
+ * @file io.h
+ * @brief Contiene le definizioni per il file io.c
+ * @author Alessandro Righi
+ */
+
 void print(const char *message, ...);
 void println(const char *message, ...);
 void print_matrix(int n, int matrix[n][n]);
 void msg_error(int status, const char *file, int line, const char *message, ...);
+void usage(void);
 
 /**
  * Stampa su stderr un messaggio di errore e termina con stato 1

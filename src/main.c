@@ -7,6 +7,12 @@
 #include "include/io.h"
 #include "include/ipc.h"
 
+/**
+ * @file main.c
+ * @brief Contiene il main del programma che usa processi e IPC
+ * @author Alessandro Righi
+ */
+
 // id delle varie IPC
 int shmidA;
 int shmidB;
@@ -19,23 +25,6 @@ int N;
 int P;
 
 struct worker *workers;
-
-/**
- * Stampa un messaggo di help relativo all'utilizzo del programma
- * e termina con stato d'uscita 1
- */
-static void usage()
-{
-	const char *message = 
-		"Usage: program <MatA> <MatB> <MatC> <N> <P>\n"
-		"    - MatA    file prima matrice da moltiplicare\n"
-		"    - MatB    file seconda matrice da moltiplicare\n"
-		"    - MatC    file dove salvare la matrice risultante\n"
-		"    - N       ordine della matrice\n"
-		"    - P       numero di processi worker da creare";
-	println(message);
-	exit(0);
-}
 
 /**
  * Programma principale
@@ -65,20 +54,22 @@ int main(int argc, char *argv[])
 	
 	if (P <= 0)
 		die("Parametro P non valido!");
+	
+	check_output_file(argv[3]);
 
 	println("[P] Esecuzione programma");
 
 	// creare la memoria condivisa
-	shmidA = create_shm(argv[1], 10, N * N * sizeof(int));
-	shmidB = create_shm(argv[2], 20, N * N * sizeof(int));
-	shmidC = create_shm(argv[1], 30, N * N * sizeof(int));
-	shmidS = create_shm(argv[1], 40, sizeof(long));
+	shmidA = create_shm(argv[3], 10, N * N * sizeof(int));
+	shmidB = create_shm(argv[3], 20, N * N * sizeof(int));
+	shmidC = create_shm(argv[3], 30, N * N * sizeof(int));
+	shmidS = create_shm(argv[3], 40, sizeof(long));
 
 	// creare semafori
-	semid = create_sem(argv[1], 50);
+	semid = create_sem(argv[3], 50);
 
 	// creare code di messaggi 
-	msgid = create_msg(argv[1], 60);
+	msgid = create_msg(argv[3], 60);
 
 	// leggo matrice A
 	ptr = attach_shm(shmidA);
