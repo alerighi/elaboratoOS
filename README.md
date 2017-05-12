@@ -106,7 +106,7 @@ Nota:
 Questa decisione e' lasciata allo studente, che puo' scegliere il modo piu' opportuno. L'importante e' che il codice sia ben strutturato e leggibile.
 2. Si possono usare funzioni quali la printf, fscanf, etc.?<br>
 No. L'elaborato richiede di usare le system call ove possibile, e tali funzioni sono rimpiazzabili tramite le system call open, write, etc. In generale, si cerchi di utilizzare il piu' possibile le system call. Invece, si possono usare funzioni quali la sprintf, perche' non ha una system call equivalente.
- 3. Alcune cose non sono ben specificate nell'elaborato. Cosa faccio?<br>
+3. Alcune cose non sono ben specificate nell'elaborato. Cosa faccio?<br>
 Alcune cose non sono specificate apposta per lasciare liberta' agli studenti di implementarle come preferiscono. In caso di dubbi, si possono comunque contattare i docenti per eventuali chiarimenti.
 4. Quale dei due stili presentati a lezione bisogna usare per il Makefile?<br>
 Lo studente può usare quello che preferisce.
