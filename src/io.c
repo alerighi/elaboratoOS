@@ -38,7 +38,7 @@ void msg_error(int status, const char *file, int line, const char *message, ...)
 	
 	vsnprintf(buffer, sizeof(buffer), message, args);
 	if (errno)
-		snprintf(buffer2, sizeof(buffer2), "[%s %d] %s: %s\n", file, line, strerror(errno), buffer);
+		snprintf(buffer2, sizeof(buffer2), "[%s %d] %s: %s\n", file, line, buffer, strerror(errno));
 	else 
 		snprintf(buffer2, sizeof(buffer2), "[%s %d] %s\n", file, line, buffer);
 	
