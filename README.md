@@ -1,7 +1,7 @@
 Elaborato Sistemi Operativi
 ---------------------------
 
-#### Utilizzo
+### Utilizzo
 - Compilare con ```make```
 - Per ricompilare il programma, ```make rebuild``` 
 - Per eseguire un test predefinito, ```make test```
