@@ -14,7 +14,8 @@
  */
 
 /**
- * Legge un carattere da un file. Ignora gli spazi.
+ * Legge un carattere da un file. Ignora gli spazi e i caratteri 
+ * carriage return (compatibilità file Windows).
  *
  * @param fd file descriptor da cui leggere
  * @return un carattere letto dal file, 0 altrimenti
@@ -26,7 +27,7 @@ static char read_char(int fd)
 	do
 		if (read(fd, &c, 1) != 1)
 			die("Errore nella lettura dal file descriptor %d", fd);
-	while (c == ' ');
+	while (c == ' ' || c == '\r');
 
 	return c;
 }
