@@ -174,7 +174,7 @@ void delete_msg(int msqid)
  */
 void msg_rcv(int msgid, int type, struct message *message)
 {
-	if (msgrcv(msgid, message, sizeof(struct message) - sizeof(long), MSG_OK, 0) == -1)
+	if (msgrcv(msgid, message, sizeof(struct message) - sizeof(long), type, 0) == -1)
 		die("Errore msgrcv");
 }
 
