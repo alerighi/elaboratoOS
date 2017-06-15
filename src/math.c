@@ -1,8 +1,9 @@
 #include "include/math.h"
 
 /**
+ * Contiene l'implementazione delle funzioni che eseguono i calcoli su matrici
+ *  
  * @file math.c
- * @brief Contiene le funzioni che eseguono le operazioni matematiche su matrice
  * @author Alessandro Righi
  */
 

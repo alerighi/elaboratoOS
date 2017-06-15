@@ -8,8 +8,9 @@
 #include "include/math.h"
 
 /**
+ * Programma che utilizza i thread al posto di processi ed IPC
+ *
  * @file main_thread.c
- * @brief Contiene il main nel caso si usino i thread
  * @author Alessandro Righi
  */
 
@@ -92,7 +93,7 @@ static void *worker_thread_sum(void *thread_arg)
 }
 
 /**
- * Programma principale
+ * Funzione main() del programma
  *
  * @param argc numero di argomenti da riga di comando
  * @param argv vettore degli argomenti da riga di comando
@@ -128,7 +129,7 @@ int main(int argc, char *argv[])
 	load_matrix(argv[1], N, matrixA);
 	load_matrix(argv[2], N, matrixB);
 	
-	println("Eseguo moltiplicazione");
+	println("Avvio thread worker moltiplicazione");
 	
 	// avvia i worker per la moltiplicazione 
 	k = 0;
@@ -151,7 +152,7 @@ int main(int argc, char *argv[])
 			die("Errore pthread_join");
 
 	
-	println("Eseguo somma");
+	println("Avvio thread worker somma");
 	// avvia i worker per la somma
 
 	for (i = 0; i < N; i++)

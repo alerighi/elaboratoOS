@@ -1,11 +1,12 @@
 #ifndef _UTIL_H
 #define _UTIL_H
 
-#include <stdlib.h>
+#include <stdlib.h> /* per pid_t */
 
 /**
+ * Contiene le definizioni delle funzioni ausiliarie usate da main.c e definizioni di strutture dato globali
+ * 
  * @file util.h
- * @brief Contiene le definizioni per worker.h
  * @author Alessandro Righi
  */
 

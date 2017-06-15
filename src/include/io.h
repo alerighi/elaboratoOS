@@ -2,8 +2,9 @@
 #define _IO_H
 
 /**
+ * Contiene le definizioni delle funzioni per l'input/output
+ *
  * @file io.h
- * @brief Contiene le definizioni per il file io.c
  * @author Alessandro Righi
  */
 

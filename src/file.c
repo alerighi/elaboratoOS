@@ -1,15 +1,16 @@
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdio.h>
+#include <stdio.h> 
 #include <stdlib.h>
 
 #include "include/file.h"
 #include "include/io.h"
 
 /**
+ * Contiene l'implementazione delle funzioni per la lettura/scrittura di file
+ *
  * @file file.c
- * @brief Contiene funzioni per la lettura/scrittura su file
  * @author Alessandro Righi
  */
 
@@ -43,7 +44,6 @@ void load_matrix(const char *filename, int n, int matrix[n][n])
 {
 	int fd, i, j, k;
 	char buff[64];
-
 
 	println("Caricamento file %s", filename);
 

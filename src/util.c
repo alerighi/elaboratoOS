@@ -12,8 +12,9 @@
 #include "include/io.h"
 
 /**
+ * Contiene l'implementazione delle funzioni di utilità utilizzate dal programma
+ * 
  * @file util.c
- * @brief Contiene funzioni di utilità
  * @author Alessandro Righi
  */
 
@@ -35,6 +36,7 @@ void cleanup(void)
 			if (wait(NULL) == -1)
 				err("Errore wait(NULL)");
 		}
+		free(workers);
 	}
 
 	// rimozione memoria condivisa
@@ -54,6 +56,7 @@ void cleanup(void)
 	// eliminazione coda di messaggi
 	if (msqid != -1)
 		delete_msg(msqid);
+
 }
 
 /**

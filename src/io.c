@@ -13,11 +13,11 @@
 #include "include/io.h"
 
 /**
+ * Contiene l'implementazione delle funzioni per l'input/output 
+ *
  * @file io.c
- * @brief Contiene funzioni di input/output
  * @author Alessandro Righi
  */
-
 
 /**
  * Stampa su standard error un messaggio di errore. Da usare con le apposite 

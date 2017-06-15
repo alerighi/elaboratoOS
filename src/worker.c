@@ -10,8 +10,9 @@
 #include "include/util.h"
 
 /**
+ * Contiene l'implementazione delle funzioni eseguite dal processo worker
+ *
  * @file worker.c
- * @brief Contiene i metodi eseguiti dal processo worker
  * @author Alessandro Righi
  */
 

@@ -1,11 +1,12 @@
 #ifndef _IPC_H
 #define _IPC_H
 
-#include <stdlib.h>
+#include <stdlib.h> /* per size_t */
 
 /**
+ * Contiene le definizioni delle funzioni per la comunicazione fra processi (IPC)
+ *  
  * @file ipc.h
- * @brief Contiene le definizioni per il file ipc.c
  * @author Alessandro Righi
  */
 

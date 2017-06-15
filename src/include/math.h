@@ -2,8 +2,9 @@
 #define _MATH_H
 
 /**
+ * Contiene le definizioni delle funzioni che eseguono i calcoli su matrici
+ *  
  * @file math.h
- * @brief Contiene le definizioni per il file math.c
  * @author Alessandro Righi
  */
 

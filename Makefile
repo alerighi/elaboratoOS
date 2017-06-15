@@ -2,7 +2,7 @@
 # Alessandro Righi 
 
 CC=gcc
-CFLAGS=-Wall -O2 -Wextra 
+CFLAGS=-Wall -O2
 LDFLAGS=
 BINNAME=elaborato
 SRCDIR=src

@@ -8,8 +8,9 @@
 #include "include/ipc.h"
 
 /**
+ * Programma principale che utilizza processi separati ed IPC systemV
+ *
  * @file main.c
- * @brief Contiene il main del programma che usa processi e IPC
  * @author Alessandro Righi
  */
 
@@ -27,7 +28,7 @@ int P;
 struct worker *workers;
 
 /**
- * Programma principale
+ * Funzione main() del programma
  *
  * @param argc numero di argomenti da riga di comando
  * @param argv vettore degli argomenti da riga di comando
@@ -82,7 +83,7 @@ int main(int argc, char *argv[])
 	detach_shm(ptr);
 	
 	// inizializza array worker
-	workers = malloc(P*sizeof(struct worker));
+	workers = malloc(P * sizeof(struct worker));
 
 	println("[P] Avvio proecssi worker");
 

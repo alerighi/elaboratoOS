@@ -9,8 +9,9 @@
 #include "include/ipc.h"
 
 /**
+ * Contiene l'implementazioni delle funzioni per la comunicazione fra processi (IPC)
+ *  
  * @file ipc.c
- * @brief Contiene funzioni riguardanti le IPC
  * @author Alessandro Righi
  */
 
